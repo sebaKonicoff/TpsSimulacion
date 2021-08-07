@@ -6,19 +6,23 @@ class Operaciones:
             x0 = int(input("El valor de la semilla debe ser impar: "))
         k = int(input("Ingrese el valor de la cte k (debe ser entero): "))
         g = int(input("Ingrese el valor de la cte g (debe ser entero): "))
+        # si la opcion elejida es 2, el metodo mixto, pide un valor a c
         if nroOp == 2:
             c = int(input("Ingrese valor de la cte c: "))
         else:
             c = 0
         serie = (40)
 
-        m = (2**g)
-        a = 3 + (8*k)
+        m = (2 ** g)
+        a = 3 + (8 * k)
         lista = []
+        # se guarda el primer valor para luego compararlo con los siguientes
+        # y así cortar la generacion de nros cuando se vuelva a repetir
         primerValor = ((a * x0) + c) % m
         for i in range(serie):
             x0 = ((a * x0) + c) % m
-            ri = x0 / (m-1)
+            ri = x0 / (m - 1)
+            # en la primera vuelta no se hace la comparacion
             if i != 0:
                 if x0 == primerValor:
                     break
@@ -47,5 +51,6 @@ class Operaciones:
                 pass
 
     @staticmethod
-    def mostrarLista(lista, nroOp):
-        pass
+    def mostrarLista(lista, desde):
+        for i in range(desde, 20):
+            print(lista)
