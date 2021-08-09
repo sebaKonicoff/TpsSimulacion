@@ -1,7 +1,7 @@
-import Operaciones
+from Operaciones import metodosCongruentes, menuMostrarLista
+
 
 def menu():
-    operacion = Operaciones
     men = True
     while men:
         print("Menú de opciones.")
@@ -13,14 +13,13 @@ def menu():
         op = int(input("Seleccione opción: "))
 
         if op == 1:
-            lista = operacion.Operaciones.metodosCongruentes(op)
+            lista = metodosCongruentes(op)
             print(lista)
-            print(len(lista))
-            operacion.Operaciones.menuMostrarLista(lista)
-            #print(operacion.Operaciones.mostrarLista(lista,0))
+            menuMostrarLista(lista)
         elif op == 2:
-            lista = operacion.Operaciones.metodosCongruentes(op)
+            lista = metodosCongruentes(op)
             print(lista)
+            menuMostrarLista(lista)
         elif op == 3:
             pass
         elif op == 4:

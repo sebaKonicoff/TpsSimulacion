@@ -1,6 +1,4 @@
-class Operaciones:
-    @staticmethod
-    def metodosCongruentes(nroOp):
+def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
             x0 = int(input("El valor de la semilla debe ser impar: "))
@@ -30,12 +28,14 @@ class Operaciones:
 
         return lista
 
-
-    def menuMostrarLista(self, lista):
+def menuMostrarLista(lista):
         desde = 0
-        self.mostrarLista(lista, desde)
+        hasta = 2
+        mostrarLista(lista, desde, hasta)
         men = True
         while men:
+            desde += 2
+            hasta += 2
             print("1. Dejar de listar. \n"
                   "2. Continuar con los proximos 20. \n"
                   "3. Listar hasta el final. \n"
@@ -45,16 +45,24 @@ class Operaciones:
             if op == 1:
                 men = False
             elif op == 2:
-                self.mostrarLista(lista, desde)
+                mostrarLista(lista, desde, hasta)
             elif op == 3:
-                pass
+                mostrarLista(lista, desde, len(lista))
             elif op == 4:
-                pass
-            desde += 2
+                des = int(input("Ingrese desde donde quiere mostrar: "))
+                hast = int(input("Ingrese hasta donde quiere mostrar: "))
+                while hast <= des or hast > len(lista):
+                    hast = int(input("Ingrese hasta donde quiere mostrar(debe ser mayor a Desde): "))
+                mostrarLista(lista, des, hast+1)
 
-    @staticmethod
-    def mostrarLista(lista, desde):
-        tam = len(lista)
+
+
+def mostrarLista(lista, desde, hasta):
         #va a ir mostrando "desde" hasta el tamaño de la lista y de a 20
-        for i in range(desde, tam, 2):
-            print(lista[i])
+        try:
+            for i in range(desde, hasta):
+                print(lista[i])
+        except IndexError:
+            print("No hay más números para mostrar")
+
+
