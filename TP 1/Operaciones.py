@@ -30,9 +30,10 @@ class Operaciones:
 
         return lista
 
-    @staticmethod
-    def menuMostrarLista(lista):
 
+    def menuMostrarLista(self, lista):
+        desde = 0
+        self.mostrarLista(lista, desde)
         men = True
         while men:
             print("1. Dejar de listar. \n"
@@ -44,13 +45,16 @@ class Operaciones:
             if op == 1:
                 men = False
             elif op == 2:
-                pass
+                self.mostrarLista(lista, desde)
             elif op == 3:
                 pass
             elif op == 4:
                 pass
+            desde += 2
 
     @staticmethod
     def mostrarLista(lista, desde):
-        for i in range(desde, 20):
-            print(lista)
+        tam = len(lista)
+        #va a ir mostrando "desde" hasta el tamaño de la lista y de a 20
+        for i in range(desde, tam, 2):
+            print(lista[i])

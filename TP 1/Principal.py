@@ -15,7 +15,9 @@ def menu():
         if op == 1:
             lista = operacion.Operaciones.metodosCongruentes(op)
             print(lista)
-            print(operacion.Operaciones.mostrarLista(lista,0))
+            print(len(lista))
+            operacion.Operaciones.menuMostrarLista(lista)
+            #print(operacion.Operaciones.mostrarLista(lista,0))
         elif op == 2:
             lista = operacion.Operaciones.metodosCongruentes(op)
             print(lista)
