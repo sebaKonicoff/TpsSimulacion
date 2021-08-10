@@ -1,3 +1,6 @@
+import random
+import numpy as np
+
 def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
@@ -40,7 +43,7 @@ def menuMostrarLista(lista):
                   "2. Continuar con los proximos 20. \n"
                   "3. Listar hasta el final. \n"
                   "4. Listar Desde ... Hasta.")
-            op = int(input("Ingrese opcion: "))
+            op = int(input("Ingrese opcion: \n"))
 
             if op == 1:
                 men = False
@@ -66,3 +69,21 @@ def mostrarLista(lista, desde, hasta):
             print("No hay más números para mostrar")
 
 
+def testChiCuadrado():
+    pass
+    
+
+def generarListaAleatoria(tam):
+    lista = []
+    sem = int(input("Ingresar semilla: "))
+    random.seed(sem)
+            
+    for i in range(tam):
+        lista.append(random.random()) 
+            
+    return lista
+
+
+def generarTablaDeFrecuencias(lista):
+    cinterv = int(input('Ingrese la cantidad de interalos: '))
+    frec, extr = np.histogram
