@@ -1,4 +1,4 @@
-from Operaciones import metodosCongruentes, menuMostrarLista
+from Operaciones import metodosCongruentes, menuMostrarLista, generarListaAleatoria
 
 
 def menu():
@@ -21,7 +21,9 @@ def menu():
             print(lista)
             menuMostrarLista(lista)
         elif op == 3:
-            pass
+            tam = int(input('Ingresar cantidad de numeros a generar: '))
+            lista = 3
+            lista = generarListaAleatoria(tam)
         elif op == 4:
             pass
         elif op == 5:
