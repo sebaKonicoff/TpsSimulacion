@@ -1,5 +1,6 @@
 import random
 import numpy as np
+from matplotlib import pyplot as plt 
 
 def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
@@ -85,5 +86,8 @@ def generarListaAleatoria(tam):
 
 
 def generarTablaDeFrecuencias(lista):
-    cinterv = int(input('Ingrese la cantidad de interalos: '))
-    frec, extr = np.histogram
+    cinterv = int(input('Ingrese la cantidad de intervalos: '))
+    frec, extr = np.histogram(lista, bins=cinterv, density=False)
+    print(frec, extr)
+    plt.hist(extr[:-1], extr, weights=frec)
+    plt.show()
