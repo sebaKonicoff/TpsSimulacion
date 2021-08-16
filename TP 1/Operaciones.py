@@ -70,9 +70,28 @@ def mostrarLista(lista, desde, hasta):
             print("No hay más números para mostrar")
 
 
-def testChiCuadrado():
-    pass
+def testChiCuadrado(lista):
+    #la cantidad sugerida de intervalos es la raíz cuadrada de la cantidad de números
+    tam = len(lista)
+    q_intervalos = round(tam**0.5)
+    intervalos_desde = []
+    for i in range(q_intervalos):
+        intervalos_desde.append(i/q_intervalos)
+    frecuencias = [0]*q_intervalos
+    for i in range(tam):
+        for j in range(q_intervalos):
+            if lista[i] - intervalos_desde[j] < 1/q_intervalos:
+                frecuencias[j] += 1
+    fe = tam/q_intervalos
+    chi_cuadrado = 0
+    for i in range(q_intervalos):
+        chi_cuadrado += ((frecuencias[i] - fe)**2) / fe
+    valor_tabulado = tabla_chi_cuadrado()
     
+
+def tabla_chi_cuadrado():
+    pass
+
 
 def generarListaAleatoria(tam):
     lista = []
