@@ -23,9 +23,9 @@ def menu():
         elif op == 3:
             tam = int(input('Ingresar cantidad de numeros a generar: '))
             lista = generarListaAleatoria(tam)
-            
+        
             #menuMostrarLista(lista)
-            generarTablaDeFrecuencias(lista)
+            testChiCuadrado(lista)
 
         elif op == 4:
             pass
