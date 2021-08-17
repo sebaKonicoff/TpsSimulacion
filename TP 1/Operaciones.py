@@ -3,17 +3,18 @@ import numpy as np
 from matplotlib import pyplot as plt 
 
 def metodosCongruentes(nroOp):
+        serie = int(input("Ingrese la cantidad de numeros a generar: "))
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
             x0 = int(input("El valor de la semilla debe ser impar: "))
         k = int(input("Ingrese el valor de la cte k (debe ser entero): "))
         g = int(input("Ingrese el valor de la cte g (debe ser entero): "))
         # si la opcion elejida es 2, el metodo mixto, pide un valor a c
-        if nroOp == 2:
+        if nroOp == 2 or nroOp == 4:
             c = int(input("Ingrese valor de la cte c: "))
         else:
             c = 0
-        serie = (40)
+
 
         m = (2 ** g)
         a = 3 + (8 * k)
@@ -34,12 +35,12 @@ def metodosCongruentes(nroOp):
 
 def menuMostrarLista(lista):
         desde = 0
-        hasta = 2
+        hasta = 20
         mostrarLista(lista, desde, hasta)
         men = True
         while men:
-            desde += 2
-            hasta += 2
+            desde += 20
+            hasta += 20
             print("1. Dejar de listar. \n"
                   "2. Continuar con los proximos 20. \n"
                   "3. Listar hasta el final. \n"
