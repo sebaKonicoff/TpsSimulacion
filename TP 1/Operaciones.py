@@ -1,6 +1,7 @@
 import random
 import numpy as np
-from matplotlib import pyplot as plt 
+from matplotlib import pyplot as plt
+from scipy.stats import chi2_contingency
 
 def metodosCongruentes(nroOp):
         serie = int(input("Ingrese la cantidad de numeros a generar: "))
@@ -89,11 +90,12 @@ def testChiCuadrado(lista):
     chi_cuadrado = 0
     for i in range(q_intervalos):
         chi_cuadrado += ((frecuencias[i] - fe)**2) / fe
-    valor_tabulado = tabla_chi_cuadrado()
-    
-
-def tabla_chi_cuadrado():
-    pass
+    frecuencias_esperadas = [fe]*q_intervalos
+    v = np.array(frecuencias, frecuencias_esperadas)
+    chi_tabulado, z1, z2, z3 = chi2_contingency(v)
+    if chi_cuadrado > chi_tabulado:
+        return false
+    return true
 
 
 def generarListaAleatoria(tam):
