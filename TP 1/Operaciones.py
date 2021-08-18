@@ -8,7 +8,7 @@ def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
             x0 = int(input("El valor de la semilla debe ser impar: "))
-        a = int(input("Ingrese el valor de la cte multiplicativa: "))
+        a = int(input("Ingrese el valor de la cte multiplicativa (a): "))
         m = int(input("Ingrese el valor del modulo: "))
         #k = int(input("Ingrese el valor de la cte k (debe ser entero): "))
         #g = int(input("Ingrese el valor de la cte g (debe ser entero): "))
@@ -42,20 +42,21 @@ def menuMostrarLista(lista):
         mostrarLista(lista, desde, hasta)
         men = True
         while men:
-            desde += 20
-            hasta += 20
             print("1. Dejar de listar. \n"
                   "2. Continuar con los proximos 20. \n"
                   "3. Listar hasta el final. \n"
                   "4. Listar Desde ... Hasta.")
             op = int(input("Ingrese opcion: \n"))
-
+            desde += 20
+            hasta += 20
             if op == 1:
                 men = False
             elif op == 2:
                 mostrarLista(lista, desde, hasta)
             elif op == 3:
                 mostrarLista(lista, desde, len(lista))
+                desde = len(lista)
+                print("Listado hasta el final.")
             elif op == 4:
                 des = int(input("Ingrese desde donde quiere mostrar: "))
                 hast = int(input("Ingrese hasta donde quiere mostrar: "))
@@ -96,8 +97,9 @@ def testChiCuadrado(lista):
     
     chi_tabulado, p = chisquare(frecuencias)
     if chi_cuadrado > chi_tabulado:
-        print('Se rechaza la hipótesis.)
-    print('No se puede rechazar la hipótesis.)
+        print("Se rechaza la hipótesis.")
+    else:
+        print("No se puede rechazar la hipótesis.")
 
 
 def generarListaAleatoria(tam):
