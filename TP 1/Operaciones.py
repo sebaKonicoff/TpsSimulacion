@@ -94,8 +94,8 @@ def testChiCuadrado(lista):
     v = [frecuencias, frecuencias_esperadas]
     chi_tabulado, z1, z2, z3 = chi2_contingency(v)
     if chi_cuadrado > chi_tabulado:
-        return false
-    return true
+        return False
+    return True
 
 
 def generarListaAleatoria(tam):

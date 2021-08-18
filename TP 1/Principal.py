@@ -25,7 +25,11 @@ def menu():
             lista = generarListaAleatoria(tam)
         
             #menuMostrarLista(lista)
-            testChiCuadrado(lista)
+            flag = testChiCuadrado(lista)
+            if flag:
+                print("No se puede rechazar.")
+            else:
+                print("Se rechaza.")
 
         elif op == 4:
             pass
