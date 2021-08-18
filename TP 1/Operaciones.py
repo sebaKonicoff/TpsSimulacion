@@ -91,7 +91,7 @@ def testChiCuadrado(lista):
     for i in range(q_intervalos):
         chi_cuadrado += ((frecuencias[i] - fe)**2) / fe
     frecuencias_esperadas = [fe]*q_intervalos
-    v = np.array(frecuencias, frecuencias_esperadas)
+    v = [frecuencias, frecuencias_esperadas]
     chi_tabulado, z1, z2, z3 = chi2_contingency(v)
     if chi_cuadrado > chi_tabulado:
         return false
