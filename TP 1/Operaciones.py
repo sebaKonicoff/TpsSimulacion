@@ -7,28 +7,30 @@ def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
             x0 = int(input("El valor de la semilla debe ser impar: "))
-        k = int(input("Ingrese el valor de la cte k (debe ser entero): "))
-        g = int(input("Ingrese el valor de la cte g (debe ser entero): "))
+        a = int(input("Ingrese el valor de la cte multiplicativa: "))
+        m = int(input("Ingrese el valor del modulo: "))
+        #k = int(input("Ingrese el valor de la cte k (debe ser entero): "))
+        #g = int(input("Ingrese el valor de la cte g (debe ser entero): "))
         # si la opcion elejida es 2, el metodo mixto, pide un valor a c
         if nroOp == 2 or nroOp == 4:
-            c = int(input("Ingrese valor de la cte c: "))
+            c = int(input("Ingrese valor de la cte aditiva (c): "))
         else:
             c = 0
 
 
-        m = (2 ** g)
-        a = 3 + (8 * k)
+        #m = (2 ** g)
+        #a = 1 + (4 * k)
         lista = []
         # se guarda el primer valor para luego compararlo con los siguientes
         # y así cortar la generacion de nros cuando se vuelva a repetir
         primerValor = ((a * x0) + c) % m
         for i in range(serie):
             x0 = ((a * x0) + c) % m
-            ri = x0 / (m - 1)
+            ri = x0 / (m )
             # en la primera vuelta no se hace la comparacion
-            if i != 0:
+            """if i != 0:
                 if x0 == primerValor:
-                    break
+                    break"""
             lista.append(ri)
 
         return lista
