@@ -84,7 +84,7 @@ def testChiCuadrado(lista):
     frecuencias = [0]*q_intervalos
     for i in range(tam):
         for j in range(q_intervalos):
-            if lista[i] - intervalos_desde[j] < 1/q_intervalos:
+            if 0 <= lista[i] - intervalos_desde[j] < 1/q_intervalos:
                 frecuencias[j] += 1
     fe = tam/q_intervalos
     chi_cuadrado = 0
