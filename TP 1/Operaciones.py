@@ -120,7 +120,7 @@ def generarTablaDeFrecuencias(lista):
     plt.hist(extr[:-1], extr, weights=frec)
     plt.show()
 
-def mostrarGraficoFrec(frec,frec_esp,intervalos_desde):
+def mostrarGraficoFrec(frec, frec_esp, intervalos_desde):
 
     
     numero_de_grupos = len(frec)
@@ -134,7 +134,7 @@ def mostrarGraficoFrec(frec,frec_esp,intervalos_desde):
     plt.legend(loc='best')
     ## Se colocan los indicadores en el eje x
     plt.xticks(indice_barras + ancho_barras, intervalos_desde)
-    
+    #f"{valor:.2f}"
     plt.ylabel('Frecuencias')
     plt.xlabel('Intervalos')
     plt.title('Frecuencias esperadas vs Frecuencias Observadas')
