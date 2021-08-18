@@ -86,6 +86,7 @@ def testChiCuadrado(lista):
         for j in range(q_intervalos):
             if lista[i] - intervalos_desde[j] < 1/q_intervalos:
                 frecuencias[j] += 1
+            
     fe = tam/q_intervalos
     chi_cuadrado = 0
     for i in range(q_intervalos):
@@ -93,6 +94,8 @@ def testChiCuadrado(lista):
     frecuencias_esperadas = [fe]*q_intervalos
     v = [frecuencias, frecuencias_esperadas]
     chi_tabulado, z1, z2, z3 = chi2_contingency(v)
+    
+    mostrarGraficoFrec(frecuencias, frecuencias_esperadas, intervalos_desde)
     if chi_cuadrado > chi_tabulado:
         return False
     return True
@@ -114,4 +117,25 @@ def generarTablaDeFrecuencias(lista):
     frec, extr = np.histogram(lista, bins=cinterv, density=False)
     print(frec, extr)
     plt.hist(extr[:-1], extr, weights=frec)
+    plt.show()
+
+def mostrarGraficoFrec(frec,frec_esp,intervalos_desde):
+
+    
+    numero_de_grupos = len(frec)
+    indice_barras = np.arange(numero_de_grupos)
+    ancho_barras =0.35
+
+    print(frec)
+    
+    plt.bar(indice_barras, frec, width=ancho_barras, label='Frecuencias Observadas')
+    plt.bar(indice_barras + ancho_barras, frec_esp, width=ancho_barras, label='Frecuencias Esperadas')
+    plt.legend(loc='best')
+    ## Se colocan los indicadores en el eje x
+    plt.xticks(indice_barras + ancho_barras, intervalos_desde)
+    
+    plt.ylabel('Frecuencias')
+    plt.xlabel('Intervalos')
+    plt.title('Frecuencias esperadas vs Frecuencias Observadas')
+    
     plt.show()
