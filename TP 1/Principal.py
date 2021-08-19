@@ -35,4 +35,5 @@ def menu():
         else:
             print("Opción no valida.")
 
+print("Integrantes: Diaz Lucas, Falco Gonzalo, Konicoff Sebastian y Rey Nores Mateo")
 menu()
