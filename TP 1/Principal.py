@@ -23,16 +23,17 @@ def menu():
         elif op == 3:
             tam = int(input('Ingresar cantidad de numeros a generar: '))
             lista = generarListaAleatoria(tam)
-        
             #menuMostrarLista(lista)
             testChiCuadrado(lista)
 
         elif op == 4:
-            pass
+            lista = metodosCongruentes(op)
+            testChiCuadrado(lista)
         elif op == 5:
             print("Fin del programa.")
             men = False
         else:
             print("Opción no valida.")
 
+print("Integrantes: Diaz Lucas, Falco Gonzalo, Konicoff Sebastian y Rey Nores Mateo")
 menu()
