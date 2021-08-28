@@ -133,7 +133,9 @@ def mostrarGraficoFrec(frec, frec_esp, intervalos_desde):
     plt.bar(indice_barras + ancho_barras, frec_esp, width=ancho_barras, label='Frecuencias Esperadas')
     plt.legend(loc='best')
     ## Se colocan los indicadores en el eje x
-    plt.xticks(indice_barras + ancho_barras, intervalos_desde)
+    plt.xticks(indice_barras + ancho_barras, intervalos_desde,rotation=45)
+    plt.subplots_adjust(bottom=0.212)
+
     #f"{valor:.2f}"
     plt.ylabel('Frecuencias')
     plt.xlabel('Intervalos')
