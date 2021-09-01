@@ -1,0 +1,10 @@
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\bin\Debug\Tp3.exe.config
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\bin\Debug\Tp3.exe
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\bin\Debug\Tp3.pdb
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.csproj.AssemblyReference.cache
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\WindowsFormsApplication1.TP3.resources
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.Properties.Resources.resources
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.csproj.GenerateResource.cache
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.exe
+C:\Users\Lucas\Desktop\Tp3-Lucas\Tp3\Tp3\obj\Debug\Tp3.pdb
