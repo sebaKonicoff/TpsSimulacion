@@ -29,9 +29,9 @@ namespace WindowsFormsApplication1
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.txt_n = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -275,16 +275,16 @@ namespace WindowsFormsApplication1
 			// 
 			// chrt_histograma
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chrt_histograma.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			this.chrt_histograma.Legends.Add(legend1);
+			chartArea2.Name = "ChartArea1";
+			this.chrt_histograma.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chrt_histograma.Legends.Add(legend2);
 			this.chrt_histograma.Location = new System.Drawing.Point(0, 25);
 			this.chrt_histograma.Name = "chrt_histograma";
-			series1.ChartArea = "ChartArea1";
-			series1.Legend = "Legend1";
-			series1.Name = "Frecuencia";
-			this.chrt_histograma.Series.Add(series1);
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Frecuencia";
+			this.chrt_histograma.Series.Add(series2);
 			this.chrt_histograma.Size = new System.Drawing.Size(498, 311);
 			this.chrt_histograma.TabIndex = 0;
 			this.chrt_histograma.Text = "chart1";
@@ -411,7 +411,9 @@ namespace WindowsFormsApplication1
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "TP3";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Trabajo práctico 3 - Grupo H";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);

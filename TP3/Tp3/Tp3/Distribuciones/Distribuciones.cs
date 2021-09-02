@@ -52,36 +52,20 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < v.Length; i++)
             {
 
-
                 double aux1 = r1.NextDouble() * 1;
                 double aux2 = r2.NextDouble() * 1;
-
-
 
                 z = Math.Sqrt(-2 * Math.Log(aux1)) * (Math.Sin(2 * pi * aux2));
 
                 variable = media + desviacion * (z);
 
-
-
-
-
-
                 v[i] = Math.Round(variable, 4);
-
-
-
-
-
             }
 
             return v;
         }
 
         // genera un valor aleatorio aplicando la distribucion Poisson
-
-
-
         public static double[] generarPoisson(double lambda, int n)
         {
             double[] v;
@@ -90,7 +74,6 @@ namespace WindowsFormsApplication1
             double p = 1;
             double x = 0;
             double u = 0;
-
             double a = Math.Exp(-lambda);
 
             for (int i = 0; i < v.Length; i++)
@@ -106,17 +89,9 @@ namespace WindowsFormsApplication1
                 } while (p >= a);
 
                 v[i] = x;
-
-
             }
             return v;
         }
-
-
-
-
-
-
 
     }
 }
