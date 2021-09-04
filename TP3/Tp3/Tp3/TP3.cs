@@ -41,13 +41,11 @@ namespace WindowsFormsApplication1
 
             dgv_frec.DataSource = null;
             dgv_frec.Refresh();
-            chrt_histograma.Series["Frecuencia"].Points.Clear(); //limpio grafico
-            lst_distrib.Items.Clear(); // limpio bloc
+            chrt_histograma.Series["Frecuencia"].Points.Clear();
+            lst_distrib.Items.Clear();
 
-            // paso generar valores
             generarValores();
 
-            // Paso generar tabla y grafico 
             switch (distribucion_seleccionada)
             {
                 case (int)tipo_distribucion.Uniforme:
@@ -221,7 +219,6 @@ namespace WindowsFormsApplication1
 
                     }
                 }
-
 
                 prob = (1 / (1 * Math.Sqrt((2 * (Math.PI))))) * Math.Exp(-0.5 * (marcaClase * marcaClase));
 

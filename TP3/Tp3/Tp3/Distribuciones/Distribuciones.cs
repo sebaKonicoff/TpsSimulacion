@@ -28,13 +28,9 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < v.Length; i++)
             {
-
                 v[i] = Math.Round(-media * Math.Log(1 - RND.NextDouble()), 4);
-
             }
-
             return v;
-
         }
 
         // genera dos valores aleatorios aplicando la distribucion normal

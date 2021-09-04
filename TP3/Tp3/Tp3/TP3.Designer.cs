@@ -84,7 +84,7 @@ namespace WindowsFormsApplication1
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox1.Location = new System.Drawing.Point(24, 34);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(314, 117);
+			this.groupBox1.Size = new System.Drawing.Size(358, 117);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Elija distribucion y muestra";
@@ -296,9 +296,9 @@ namespace WindowsFormsApplication1
 			this.groupBox5.Controls.Add(this.label9);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox5.Location = new System.Drawing.Point(619, 180);
+			this.groupBox5.Location = new System.Drawing.Point(583, 167);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(349, 134);
+			this.groupBox5.Size = new System.Drawing.Size(385, 157);
 			this.groupBox5.TabIndex = 4;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "K-S";
@@ -338,12 +338,13 @@ namespace WindowsFormsApplication1
 			// 
 			// btn_generar
 			// 
+			this.btn_generar.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this.btn_generar.Location = new System.Drawing.Point(422, 331);
 			this.btn_generar.Name = "btn_generar";
 			this.btn_generar.Size = new System.Drawing.Size(169, 52);
 			this.btn_generar.TabIndex = 5;
 			this.btn_generar.Text = "Aceptar";
-			this.btn_generar.UseVisualStyleBackColor = true;
+			this.btn_generar.UseVisualStyleBackColor = false;
 			this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
 			// 
 			// dgv_frec
