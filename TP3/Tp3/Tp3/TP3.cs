@@ -16,11 +16,9 @@ namespace WindowsFormsApplication1
         enum tipo_distribucion { Uniforme, Poisson, Normal, Exponencial };
         double confianza = 0.95;
         int distribucion_seleccionada = 0;
-        int n;
         double[] numeros;
-        DataTable dt;
         double intervalos;
-        double prob = 0;
+
         public TP3()
         {
             InitializeComponent();
@@ -41,220 +39,29 @@ namespace WindowsFormsApplication1
 
             dgv_frec.DataSource = null;
             dgv_frec.Refresh();
-            chrt_histograma.Series["Frecuencia"].Points.Clear();
-            lst_distrib.Items.Clear();
+            chrt_histograma.Series["Frecuencia"].Points.Clear(); //limpio grafico
+            lst_distrib.Items.Clear(); // limpio bloc
 
-            generarValores();
+            // paso generar valores
+            numeros = generarValores();
 
+            // Paso generar tabla y grafico 
             switch (distribucion_seleccionada)
             {
                 case (int)tipo_distribucion.Uniforme:
-                    generar_tabla_distribucion_Uniforme();
+                    generar_tabla_distribucion_Uniforme(numeros, Convert.ToDouble(txt_min.Text), Convert.ToDouble(txt_max.Text));
                     break;
                 case (int)tipo_distribucion.Exponencial:
-                    generar_tablasExp();
+                    generar_tablasExp(numeros);
                     break;
                 case (int)tipo_distribucion.Poisson:
-                    generar_tablasPoisson();
+                    generar_tablasPoisson(numeros);
                     break;
                 case (int)tipo_distribucion.Normal:
-                    generar_tablasNormal();
+                    generar_tablasNormal(numeros);
                     break;
             }
             evaluarPrueba();
-        }
-
-        public void generar_tabla_distribucion_Uniforme()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("N°");
-            dt.Columns.Add("Mín");
-            dt.Columns.Add("Máx");
-            dt.Columns.Add("Mc");
-            dt.Columns.Add("FO");
-
-            dt.Columns.Add("FO");
-            dt.Columns.Add("PO");
-            dt.Columns.Add("PE");
-            dt.Columns.Add("POAc");
-            dt.Columns.Add("POAc");
-            dt.Columns.Add("POAc-PEAc");
-
-            intervalos = Convert.ToInt32(txt_intervalos.Text);
-
-            int min = Convert.ToInt32(numeros[0]);
-            int max = Convert.ToInt32(numeros[0]);
-            double intSig = 0;
-            double frec = 0;
-            double marcaClase = 0;
-            double j = 0;
-
-            double fe = 0;
-            double po = 0;
-            double pe = 0;
-            double poAc = 0;
-            double peAc = 0;
-            double abs = 0.0;
-            double numero = 0;
-            for (int i = 0; i < n; i++) //Arma los intervalos 
-            {
-                if (numeros[i] > max)
-                {
-                    max = Convert.ToInt32(numeros[i]);
-                }
-                if (numeros[i] < min)
-                {
-                    min = Convert.ToInt32(numeros[i]);
-                }
-            }
-
-            double cteIntervalo = (max - min) / intervalos;
-
-            for (j = min; j < max; j = j + cteIntervalo)
-            {
-                numero = numero + 1;
-                intSig = j + cteIntervalo;
-                marcaClase = (intSig + j) / 2;
-                for (int i = 0; i < n; i++)
-                {
-
-                    if (numeros[i] >= j && numeros[i] < intSig)
-                    {
-                        frec = frec + 1;
-                    }
-                }
-
-                fe = n / intervalos;
-                po = (double)frec / (double)n;
-                pe = fe / n;
-                poAc = poAc + po;
-                peAc = peAc + pe;
-                abs = poAc - peAc;
-
-                //Generar histograma
-                abs = Math.Abs(abs);
-                double grafico = Math.Round((j + (cteIntervalo / 2)), 4);
-                chrt_histograma.Series["Frecuencia"].Points.AddXY(grafico, frec);
-
-                DataRow dr = dt.NewRow();
-                dr["N°"] = numero;
-                dr["Mín"] = j;
-                dr["Máx"] = intSig;
-                dr["Marca Clase"] = Math.Round(marcaClase, 4);
-                dr["Fe"] = Math.Round(fe, 4);
-                dr["Fo"] = Math.Round(frec, 4);
-                dr["Po"] = Math.Round(po, 4);
-                dr["Pe"] = Math.Round(pe, 4);
-                dr["PoAc"] = Math.Round(poAc, 4);
-                dr["PeAc"] = Math.Round(peAc, 4);
-                dr["PoAc-PeAc"] = Math.Round(abs, 4);
-
-                dt.Rows.Add(dr);
-                frec = 0;
-            }
-
-            dgv_frec.DataSource = dt;
-        }
-
-
-
-        public void generar_tablasNormal()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("N°");
-            dt.Columns.Add("Mín");
-            dt.Columns.Add("Máx");
-            dt.Columns.Add("MC");
-            dt.Columns.Add("FO");
-            dt.Columns.Add("P");
-            dt.Columns.Add("FE");
-            dt.Columns.Add("PO");
-            dt.Columns.Add("PE");
-            dt.Columns.Add("POAc");
-            dt.Columns.Add("PEAc");
-            dt.Columns.Add("POAc-PEAc");
-
-            intervalos = Convert.ToInt32(txt_intervalos.Text);
-
-            int min = Convert.ToInt32(numeros[0]);
-            int max = Convert.ToInt32(numeros[0]);
-            double intSig = 0;
-            int frec = 0;
-            double marcaClase = 0;
-            double j = 0;
-            double fe = 0;
-            double po = 0;
-            double pe = 0;
-            double poAc = 0;
-            double peAc = 0;
-            double abs = 0;
-            double numero = 0;
-
-            // Intervalos
-            for (int i = 0; i < n; i++)
-            {
-                if (numeros[i] > max)
-                {
-                    max = Convert.ToInt32(numeros[i]);
-                }
-                if (numeros[i] < min)
-                {
-                    min = Convert.ToInt32(numeros[i]);
-                }
-            }
-
-            double cteIntervalo = (max - min) / intervalos;
-            j = 0;
-            for (j = min; j < max; j = j + cteIntervalo)
-            {
-                intSig = j + cteIntervalo;
-                numero = numero + 1;
-
-                marcaClase = (intSig + j) / 2;
-                for (int i = 0; i < n; i++)
-                {
-                    if (numeros[i] >= j && numeros[i] < intSig)
-                    {
-                        frec = frec + 1;
-
-                    }
-                }
-
-                prob = (1 / (1 * Math.Sqrt((2 * (Math.PI))))) * Math.Exp(-0.5 * (marcaClase * marcaClase));
-
-
-                fe = prob * (double)n;
-                po = (double)frec / (double)n;
-                pe = fe / n;
-                poAc = poAc + po;
-                peAc = peAc + pe;
-                abs = poAc - peAc;
-                abs = Math.Abs(abs);
-                chrt_histograma.Series["Frecuencia"].Points.AddXY((j + (cteIntervalo / 2)), frec);
-
-
-                DataRow dr = dt.NewRow();
-                dr["N°"] = numero;
-                dr["Mín"] = j;
-                dr["Máx"] = intSig;
-                dr["MC"] = Math.Round(marcaClase, 4);
-                dr["FO"] = frec;
-                dr["P"] = Math.Round(prob, 4);
-                dr["FE"] = Math.Round(fe, 4);
-                dr["PO"] = Math.Round(po, 4);
-                dr["PE"] = Math.Round(pe, 4);
-                dr["POAc"] = Math.Round(poAc, 4);
-                dr["PEAc"] = Math.Round(peAc, 4);
-                dr["POAc-PEAc"] = Math.Round(abs, 4);
-
-
-                dt.Rows.Add(dr);
-
-                frec = 0;
-                prob = 0;
-            }
-
-            dgv_frec.DataSource = dt;
         }
 
         public double[] generarValores()
@@ -264,14 +71,11 @@ namespace WindowsFormsApplication1
             dgv_frec.Refresh();
             chrt_histograma.Series["Frecuencia"].Points.Clear(); //Inicia el grafico
             lst_distrib.Items.Clear();
-
             numeros = null;
-
 
             //Creo el objeto de la clase Random 
             Random RND = new Random();
-            n = Convert.ToInt32(txt_n.Text);
-
+            int n = Convert.ToInt32(txt_n.Text);
 
             //Creamos un array que va a contener cantidad aleatoria de numeros que ingresamos por el texbox
             numeros = new double[n];
@@ -283,12 +87,13 @@ namespace WindowsFormsApplication1
                 case (int)tipo_distribucion.Uniforme:
                     min = Convert.ToDouble(txt_min.Text);
                     max = Convert.ToDouble(txt_max.Text);
+                    numeros = Distribucion.generarUniforme(min, max, n);
                     for (int i = 0; i < n; i++)
                     {
-                        numeros[i] = Distribucion.generarUniforme(min, max);
                         lst_distrib.Items.Add(numeros[i].ToString());
                     }
                     break;
+
                 case (int)tipo_distribucion.Exponencial:
                     media = Convert.ToDouble(txt_media.Text);
                     numeros = Distribucion.generarExponencial(media, n);
@@ -299,6 +104,7 @@ namespace WindowsFormsApplication1
                         lst_distrib.Items.Add(numeros[i].ToString());
                     }
                     break;
+
                 case (int)tipo_distribucion.Poisson:
                     lambdaPoisson = Convert.ToDouble(txt_lambda.Text);
                     numeros = Distribucion.generarPoisson(lambdaPoisson, n);
@@ -308,6 +114,7 @@ namespace WindowsFormsApplication1
                         lst_distrib.Items.Add(numeros[i].ToString());
                     }
                     break;
+
                 case (int)tipo_distribucion.Normal:
                     media = Convert.ToDouble(txt_media.Text);
                     desv = Convert.ToDouble(txt_desv.Text);
@@ -319,35 +126,398 @@ namespace WindowsFormsApplication1
                     }
                     break;
             }
-
-
             return numeros;
         }
 
-        public double calcularMedia()
+        public void generar_tabla_distribucion_Uniforme(double[] numeros, double min, double max)
         {
-            double[] numerosGenerados = generarValores();
-            int n;
-            n = Convert.ToInt32(txt_n.Text);
-            n = int.Parse(txt_n.Text);
-            double media = 0;
-            for (int i = 0; i < numerosGenerados.Length; i++)
+            double n = numeros.Length;
+            int intervalos = Convert.ToInt32(txt_intervalos.Text);
+            double pe;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("N°");
+            dt.Columns.Add("MIN");
+            dt.Columns.Add("MAX");
+            dt.Columns.Add("MC");
+            dt.Columns.Add("FO");
+            dt.Columns.Add("FE");
+            dt.Columns.Add("PO");
+            dt.Columns.Add("PE");
+            dt.Columns.Add("POAc");
+            dt.Columns.Add("PEAC");
+            dt.Columns.Add("POAc-PEAc");
+
+            double frec = 0;
+            double poAc = 0;
+            double peAc = 0;
+            double numero = 0;
+            double cteIntervalo = (max - min) / intervalos;
+            double j = min;
+
+            for (numero = 0; numero < intervalos; numero++)
             {
-                double contar = i++;
-                media = contar / n;
+                double intSig = j + cteIntervalo;
+                double marcaClase = (intSig + j) / 2;
+                
+                for (int i = 0; i < n; i++)
+                {
+
+                    if (numeros[i] >= j && numeros[i] < intSig)
+                        frec++;
+                }
+
+                double fe = n / intervalos;
+                double po = frec / n;
+                poAc += po;
+
+                //Generar histograma
+                chrt_histograma.Series["Frecuencia"].Points.AddXY(Math.Round(marcaClase, 4), frec);
+
+                DataRow dr = dt.NewRow();
+                dr["N°"] = numero+1;
+                dr["MIN"] = j;
+                dr["MAX"] = intSig;
+                dr["MC"] = Math.Round(marcaClase, 4);
+                dr["FO"] = Math.Round(frec, 4);
+                dr["FE"] = Math.Round(fe, 4);
+                dr["PO"] = Math.Round(po, 4);
+                dr["PE"] = Math.Round((double)1 / intervalos, 4);
+                dr["POAc"] = Math.Round(poAc, 4);
+                pe = (double)1 / intervalos;
+                peAc += pe;
+                dr["PEAc"] = Math.Round(peAc, 4);
+                dr["POAc-PEAc"] = Math.Round(Math.Abs(poAc-peAc), 4);
+                dt.Rows.Add(dr);
+
+                frec = 0;
+                j += cteIntervalo;
             }
-            return media;
+
+            dgv_frec.DataSource = dt;
         }
 
-        public double calcularLambda()
+        public void generar_tablasNormal(double[] numeros)
         {
-            double media = calcularMedia();
-            double lambda = 1 / media;
-            return lambda;
+            double n = numeros.Length;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("N°");
+            dt.Columns.Add("MIN");
+            dt.Columns.Add("MAX");
+            dt.Columns.Add("MC");
+            dt.Columns.Add("FO");
+            dt.Columns.Add("FE");
+            dt.Columns.Add("PO");
+            dt.Columns.Add("PE");
+            dt.Columns.Add("POAc");
+            dt.Columns.Add("PEAc");
+            dt.Columns.Add("POAc-PEAc");
+
+            intervalos = Convert.ToInt32(txt_intervalos.Text);
+
+            double min = numeros[0];
+            double max = numeros[0];
+            double intSig, marcaClase, fe, po, pe, poAc, peAc, abs, numero;
+            int frec;
+
+            // Intervalos
+            for (int i = 0; i < n; i++)
+            {
+                if (numeros[i] > max)
+                {
+                    max = numeros[i];
+                }
+                if (numeros[i] < min)
+                {
+                    min = numeros[i];
+                }
+            }
+            min = Math.Floor(min);
+            max = Math.Ceiling(max);
+            double j = min;
+            double cteIntervalo = (max - min) / intervalos;
+            numero = 0;
+            frec = 0;
+            poAc = 0;
+            peAc = 0;
+            for (numero = 0; numero < intervalos; numero++)
+            {
+                intSig = j + cteIntervalo;
+                marcaClase = (intSig + j) / 2;
+                for (int i = 0; i < n; i++)
+                {
+                    if (numeros[i] >= j && numeros[i] < intSig)
+                        frec++;
+                }
+
+
+                pe = FuncionDistribucionNormal(j+cteIntervalo) - FuncionDistribucionNormal(j);
+
+                fe = pe * n;
+                po = frec / n;
+                poAc += po;
+                peAc += pe;
+                abs = Math.Abs(poAc - peAc);
+                chrt_histograma.Series["Frecuencia"].Points.AddXY(Math.Round(marcaClase, 4), frec);
+
+
+                DataRow dr = dt.NewRow();
+                dr["N°"] = numero+1;
+                dr["MIN"] = j;
+                dr["MAX"] = intSig;
+                dr["MC"] = Math.Round(marcaClase, 4);
+                dr["FO"] = frec;
+                dr["FE"] = Math.Round(fe, 4);
+                dr["PO"] = Math.Round(po, 4);
+                dr["PE"] = Math.Round(pe, 4);
+                dr["POAc"] = Math.Round(poAc, 4);
+                dr["PEAc"] = Math.Round(peAc, 4);
+                dr["POAc-PEAc"] = Math.Round(abs, 4);
+                dt.Rows.Add(dr);
+
+                frec = 0;
+                j += cteIntervalo;
+            }
+
+            dgv_frec.DataSource = dt;
         }
 
-        private void txt_lambda_TextChanged(object sender, EventArgs e)
+        // Exponencial 
+        public void generar_tablasExp(double[] numeros)
         {
+            double n = numeros.Length;
+            double media = Convert.ToDouble(txt_media.Text);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("N°");
+            dt.Columns.Add("MIN");
+            dt.Columns.Add("MAX");
+            dt.Columns.Add("MC");
+            dt.Columns.Add("FO");
+            dt.Columns.Add("FE");
+            dt.Columns.Add("PO");
+            dt.Columns.Add("PE");
+            dt.Columns.Add("POAc");
+            dt.Columns.Add("PEAc");
+            dt.Columns.Add("POAc-PEAc");
+
+            int intervalos = Convert.ToInt32(txt_intervalos.Text);
+
+            double max = numeros[0];
+            double intSig;
+            int frec = 0;
+            double marcaClase;
+            double j = 0;
+
+            double lamdaExp = 1 / media;
+
+            double fe;
+            double po;
+            double pe;
+            double poAc = 0;
+            double peAc = 0;
+            double abs;
+            double numero = 0;
+
+            // Intervalos
+            for (int i = 0; i < n; i++)
+            {
+                if (numeros[i] > max)
+                {
+                    max = numeros[i];
+                }
+            }
+            max = Math.Ceiling(max);
+
+            double cteIntervalo = max / intervalos;
+            for (numero = 0; numero < intervalos; numero++)
+            {
+                intSig = j + cteIntervalo;
+                marcaClase = (intSig + j) / 2;
+                for (int i = 0; i < n; i++)
+                {
+                    if (numeros[i] >= j && numeros[i] < intSig)
+                    {
+                        frec++;
+
+                    }
+                }
+
+                double prob = (1 - Math.Exp(-(lamdaExp * (j + cteIntervalo)))) - (1 - Math.Exp(-(lamdaExp * j)));
+
+                fe = prob * n;
+                po = frec / n;
+                pe = prob;
+                poAc += po;
+                peAc += pe;
+                abs = Math.Abs(poAc - peAc);
+
+                chrt_histograma.Series["Frecuencia"].Points.AddXY(Math.Round(marcaClase, 4), frec);
+
+                DataRow dr = dt.NewRow();
+                dr["N°"] = numero+1;
+                dr["MIN"] = Math.Round(j, 4);
+                dr["MAX"] = Math.Round(intSig, 4);
+                dr["MC"] = Math.Round(marcaClase, 4);
+                dr["FO"] = frec;
+                dr["FE"] = Math.Round(fe, 4);
+                dr["PO"] = Math.Round(po, 4);
+                dr["PE"] = Math.Round(pe, 4);
+                dr["POAc"] = Math.Round(poAc, 4);
+                dr["PEAc"] = Math.Round(peAc, 4);
+                dr["POAc-PEAc"] = Math.Round(abs, 4);
+                dt.Rows.Add(dr);
+
+                frec = 0;
+                j += cteIntervalo;
+            }
+
+            dgv_frec.DataSource = dt;
+        }
+
+        public void generar_tablasPoisson(double[] numeros) //Distribucion Poisson
+        {
+            int n = numeros.Length;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("N°");
+            dt.Columns.Add("MIN");
+            dt.Columns.Add("MAX");
+            dt.Columns.Add("MC");
+            dt.Columns.Add("FO");
+            dt.Columns.Add("FE");
+            dt.Columns.Add("PO");
+            dt.Columns.Add("PE");
+            dt.Columns.Add("POAc");
+            dt.Columns.Add("PEAc");
+            dt.Columns.Add("POAc-PEAc");
+
+            int intervalos = Convert.ToInt32(txt_intervalos.Text);
+
+            double max = numeros[0];
+            double intSig = 0;
+            int frec = 0;
+            double marcaClase = 0;
+            double j = 0;
+
+            double lambdaPoisson = Convert.ToDouble(txt_lambda.Text);
+
+            double poAc = 0;
+            double peAc = 0;
+            double abs = 0;
+            int numero = 0;
+
+            // Intervalos
+            for (int i = 0; i < n; i++)
+            {
+                if (numeros[i] > max)
+                {
+                    max = Convert.ToInt32(numeros[i]);
+                }
+            }
+            max++;
+
+            double cteIntervalo = max / intervalos;  // Calculo del paso
+            for (numero = 0; numero < intervalos; numero++)
+            {
+                intSig = j + cteIntervalo;
+                marcaClase = (intSig + j) / 2;
+                for (int i = 0; i < n; i++)
+                {
+                    if (numeros[i] >= j && numeros[i] < intSig)
+                    {
+                        frec++;
+
+                    }
+                }
+                
+                double pe = ProbIntervaloPoisson(j, intSig, lambdaPoisson);
+                double po = Po(frec, n);
+                double fe = pe * n;
+                poAc += po;
+                peAc += pe;
+                abs = Math.Abs(poAc - peAc);
+
+                chrt_histograma.Series["Frecuencia"].Points.AddXY(Math.Round(marcaClase, 4), frec);
+
+                DataRow dr = dt.NewRow();
+
+                dr["N°"] = numero+1;
+                dr["MIN"] = Math.Round(j, 4);
+                dr["MAX"] = Math.Round(intSig, 4);
+                dr["MC"] = Math.Round(marcaClase, 4);
+                dr["FO"] = frec;
+                dr["FE"] = Math.Round(fe, 4);
+                dr["PO"] = Math.Round((double)frec/n, 4);
+                dr["PE"] = Math.Round(pe, 4);
+                dr["POAc"] = Math.Round(poAc, 4);
+                dr["PEAc"] = Math.Round(peAc, 4);
+                dr["POAc-PEAc"] = Math.Round(abs, 4);
+
+                dt.Rows.Add(dr);
+
+                frec = 0;
+                j += cteIntervalo;
+
+            }
+
+            dgv_frec.DataSource = dt;
+        }
+
+        private double Po(double frec, double n)
+        {
+            return frec / n;
+        }
+
+        private double ProbIntervaloPoisson(double j, double intSig, double lambda)
+        {
+            j = Math.Ceiling(j);
+            double prob = 0;
+            for (int i = (int)j; i < intSig; i++)
+            {
+                prob += (Math.Pow(lambda, i) * Math.Exp(-lambda)) / factorial(i);
+            }
+            return prob;
+        }
+
+        private void evaluarPrueba() //Recorre la tabla y valida para ver si se acepta o rechaza
+        {
+
+            double mayor = 0;
+            foreach (DataGridViewRow row in dgv_frec.Rows)
+            {
+
+                double valor_ac = Convert.ToDouble(row.Cells["POAc-PEAc"].Value);
+
+                if (valor_ac > mayor)
+                {
+
+                    mayor = valor_ac;
+
+                }
+
+            }
+            int n = Convert.ToInt32(txt_n.Text);
+            double valor = 1.36 / Math.Sqrt(n);
+
+            lbl_resultadoPrueba.Text = "Para un nivel de confianza " +
+
+            txt_confianza.Text + " (" + valor + "), y el máximo valor obtenido de la prueba " + mayor + ", obtenemos entonces como conclusión que";
+
+            if (valor > mayor)
+            {
+
+                lbl_resultadoPrueba.Text += " SE ACEPTA la prueba.";
+
+            }
+
+            else
+            {
+
+                lbl_resultadoPrueba.Text += " SE RECHAZA la prueba.";
+
+            }
+            MessageBox.Show(lbl_resultadoPrueba.Text);
+
 
         }
 
@@ -403,253 +573,6 @@ namespace WindowsFormsApplication1
             txt_lambda.Text = "";
         }
 
-        // Exponencial 
-        public void generar_tablasExp()
-        {
-            double media = Convert.ToDouble(txt_media.Text);
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("N°");
-            dt.Columns.Add("Mín");
-            dt.Columns.Add("Máx");
-            dt.Columns.Add("MC");
-            dt.Columns.Add("FO");
-            dt.Columns.Add("P");
-            dt.Columns.Add("FE");
-            dt.Columns.Add("PO");
-            dt.Columns.Add("PE");
-            dt.Columns.Add("POAc");
-            dt.Columns.Add("PEAc");
-            dt.Columns.Add("POAc-PEAc");
-
-            intervalos = Convert.ToInt32(txt_intervalos.Text);
-
-            int min = Convert.ToInt32(numeros[0]);
-            double max = Convert.ToInt32(numeros[0]);
-            double intSig = 0;
-            int frec = 0;
-            double marcaClase = 0;
-            double j = 0;
-
-            double lamdaExp = 1 / media;
-
-            double fe = 0;
-            double po = 0;
-            double pe = 0;
-            double poAc = 0;
-            double peAc = 0;
-            double abs = 0;
-            double numero = 0;
-
-            // Intervalos
-            for (int i = 0; i < n; i++)
-            {
-                if (numeros[i] > max)
-                {
-                    max = Convert.ToInt32(numeros[i]);
-                }
-                if (numeros[i] < min)
-                {
-                    min = Convert.ToInt32(numeros[i]);
-                }
-            }
-
-            double cteIntervalo = Convert.ToInt32(max / intervalos);
-            for (j = 0; j < max; j = j + cteIntervalo)
-            {
-                numero = numero + 1;
-                intSig = j + cteIntervalo;
-                marcaClase = (intSig + j) / 2;
-                for (int i = 0; i < n; i++)
-                {
-                    if (numeros[i] >= j && numeros[i] < intSig)
-                    {
-                        frec = frec + 1;
-
-                    }
-                }
-
-                prob = (1 - Math.Exp(-(lamdaExp * (j + cteIntervalo)))) - (1 - Math.Exp(-(lamdaExp * (j))));
-
-                fe = prob * (double)n;
-                po = (double)frec / (double)n;
-                pe = fe / n;
-                poAc = poAc + po;
-                peAc = peAc + pe;
-                abs = poAc - peAc;
-                abs = Math.Abs(abs);
-
-                chrt_histograma.Series["Frecuencia"].Points.AddXY((j + (cteIntervalo / 2)), frec);
-
-                DataRow dr = dt.NewRow();
-                dr["numero"] = numero;
-                dr["Mín"] = Math.Round(j, 4);
-                dr["Máx"] = Math.Round(intSig, 4);
-                dr["Marca Clase"] = Math.Round(marcaClase, 4);
-                dr["Fo"] = frec;
-                dr["P()"] = Math.Round(prob, 4);
-                dr["Fe"] = Math.Round(fe, 4);
-                dr["Po"] = Math.Round(po, 4);
-                dr["Pe"] = Math.Round(pe, 4);
-                dr["PoAc"] = Math.Round(poAc, 4);
-                dr["PeAc"] = Math.Round(peAc, 4);
-                dr["PoAc-PeAc"] = Math.Round(abs, 4);
-                dt.Rows.Add(dr);
-
-                frec = 0;
-                prob = 0;
-            }
-
-            dgv_frec.DataSource = dt;
-        }
-
-        public void generar_tablasPoisson() //Distribucion Poisson
-        {
-
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("N°");
-            dt.Columns.Add("Mín");
-            dt.Columns.Add("Máx");
-            dt.Columns.Add("MC");
-            dt.Columns.Add("FO");
-            dt.Columns.Add("P");
-            dt.Columns.Add("FE");
-            dt.Columns.Add("PO");
-            dt.Columns.Add("PE");
-            dt.Columns.Add("POAc");
-            dt.Columns.Add("PEAc");
-            dt.Columns.Add("POAc-PEAc");
-
-            intervalos = Convert.ToInt32(txt_intervalos.Text);
-
-            int min = Convert.ToInt32(numeros[0]);
-            int max = Convert.ToInt32(numeros[0]);
-            double intSig = 0;
-            int frec = 0;
-            double marcaClase = 0;
-            double j = 0;
-
-            double lambdaPoisson = Convert.ToDouble(txt_lambda.Text);
-
-            double fe = 0;
-            double po = 0;
-            double pe = 0;
-            double poAc = 0;
-            double peAc = 0;
-            double abs = 0;
-            int numero = 0;
-
-            // Intervalos
-            for (int i = 0; i < n; i++)
-            {
-                if (numeros[i] > max)
-                {
-                    max = Convert.ToInt32(numeros[i]);
-                }
-                if (numeros[i] < min)
-                {
-                    min = Convert.ToInt32(numeros[i]);
-                }
-            }
-
-            double cteIntervalo = max / intervalos;  // Calculo del paso
-            for (j = 0; j < max; j = j + cteIntervalo)
-            {
-                numero = numero + 1;
-
-                intSig = j + cteIntervalo;
-                marcaClase = (intSig + j) / 2;
-                for (int i = 0; i < n; i++)
-                {
-                    if (numeros[i] >= j && numeros[i] < intSig)
-                    {
-                        frec = frec + 1;
-
-                    }
-                }
-
-                prob = ((Math.Pow(lambdaPoisson, j)) * Math.Exp(-lambdaPoisson)) / factorial(j);
-
-                fe = prob * (double)n;
-                po = (double)frec / (double)n;
-                pe = fe / n;
-                poAc = poAc + po;
-                peAc = peAc + pe;
-                abs = poAc - peAc;
-                abs = Math.Abs(abs);
-
-                chrt_histograma.Series["Frecuencia"].Points.AddXY((j + (cteIntervalo / 2)), frec);
-
-
-
-                DataRow dr = dt.NewRow();
-
-                dr["N°"] = numero;
-                dr["Mín"] = Math.Round(j, 4);
-                dr["Máx"] = Math.Round(intSig, 4);
-                dr["MC"] = Math.Round(marcaClase, 4);
-                dr["FO"] = frec;
-                dr["P"] = Math.Round(prob, 4);
-                dr["FE"] = Math.Round(fe, 4);
-                dr["PO"] = Math.Round(po, 4);
-                dr["PE"] = Math.Round(pe, 4);
-                dr["POAc"] = Math.Round(poAc, 4);
-                dr["PEAc"] = Math.Round(peAc, 4);
-                dr["POAc-PEAc"] = Math.Round(abs, 4);
-
-                dt.Rows.Add(dr);
-
-                frec = 0;
-                prob = 0;
-            }
-
-            dgv_frec.DataSource = dt;
-        }
-
-        private void evaluarPrueba() //Recorre la tabla y valida para ver si se acepta o rechaza
-        {
-
-            double mayor = 0;
-            foreach (DataGridViewRow row in dgv_frec.Rows)
-            {
-
-                double valor_ac = Convert.ToDouble(row.Cells["PoAc-PeAc"].Value);
-
-                if (valor_ac > mayor)
-                {
-
-                    mayor = valor_ac;
-
-                }
-
-            }
-
-            double valor = 1.36 / Math.Sqrt(n);
-
-            lbl_resultadoPrueba.Text = "Para un nivel de confianza " +
-
-            txt_confianza.Text + " (" + valor + "), y el máximo valor obtenido de la prueba " + mayor + ", obtenemos entonces como conclusión que";
-
-            if (valor > mayor)
-            {
-
-                lbl_resultadoPrueba.Text += " SE ACEPTA la prueba.";
-
-            }
-
-            else
-            {
-
-                lbl_resultadoPrueba.Text += " SE RECHAZA la prueba.";
-
-            }
-            MessageBox.Show(lbl_resultadoPrueba.Text);
-
-
-        }
-
-
         private static double factorial(double n)
         {
             double fact = 1;
@@ -660,7 +583,37 @@ namespace WindowsFormsApplication1
             return fact;
         }
 
- 
+        static double Erf(double x)
+        {
+            // constants
+            double a1 = 0.254829592;
+            double a2 = -0.284496736;
+            double a3 = 1.421413741;
+            double a4 = -1.453152027;
+            double a5 = 1.061405429;
+            double p = 0.3275911;
+
+            // Save the sign of x
+            int sign = 1;
+            if (x < 0)
+                sign = -1;
+            x = Math.Abs(x);
+
+            // A&S formula 7.1.26
+            double t = 1.0 / (1.0 + p * x);
+            double y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.Exp(-x * x);
+
+            return sign * y;
+        }
+
+        public double FuncionDistribucionNormal(double x)
+        {
+            double numerador, fraccion, valor;
+            numerador = x - Convert.ToDouble(txt_media.Text);
+            fraccion = numerador / (Convert.ToDouble(txt_desv.Text) * Math.Sqrt(2));
+            valor = 0.5 * (1 + Erf(fraccion));
+            return valor;
+        }
     }
 
 
