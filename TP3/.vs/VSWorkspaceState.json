@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Tp3"
+    "\\Tp3",
+    "\\Tp3\\Tp3",
+    "\\Tp3\\Tp3\\Distribuciones"
   ],
-  "SelectedNode": "\\Tp3\\Tp3.sln",
+  "SelectedNode": "\\Tp3\\Tp3\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
