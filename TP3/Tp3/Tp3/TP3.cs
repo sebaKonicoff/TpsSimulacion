@@ -42,26 +42,133 @@ namespace WindowsFormsApplication1
             chrt_histograma.Series["Frecuencia"].Points.Clear(); //limpio grafico
             lst_distrib.Items.Clear(); // limpio bloc
 
-            // paso generar valores
-            numeros = generarValores();
-
-            // Paso generar tabla y grafico 
-            switch (distribucion_seleccionada)
+            if (this.Validar())
             {
-                case (int)tipo_distribucion.Uniforme:
-                    generar_tabla_distribucion_Uniforme(numeros, Convert.ToDouble(txt_min.Text), Convert.ToDouble(txt_max.Text));
-                    break;
-                case (int)tipo_distribucion.Exponencial:
-                    generar_tablasExp(numeros);
-                    break;
-                case (int)tipo_distribucion.Poisson:
-                    generar_tablasPoisson(numeros);
-                    break;
-                case (int)tipo_distribucion.Normal:
-                    generar_tablasNormal(numeros);
-                    break;
+                // paso generar valores
+                numeros = generarValores();
+
+                // Paso generar tabla y grafico 
+                switch (distribucion_seleccionada)
+                {
+                    case (int)tipo_distribucion.Uniforme:
+                        generar_tabla_distribucion_Uniforme(numeros, Convert.ToDouble(txt_min.Text), Convert.ToDouble(txt_max.Text));
+                        break;
+                    case (int)tipo_distribucion.Exponencial:
+                        generar_tablasExp(numeros);
+                        break;
+                    case (int)tipo_distribucion.Poisson:
+                        generar_tablasPoisson(numeros);
+                        break;
+                    case (int)tipo_distribucion.Normal:
+                        generar_tablasNormal(numeros);
+                        break;
+                }
+                evaluarPrueba();
             }
-            evaluarPrueba();
+        }
+
+        public bool Validar()
+        {
+            string val = "Validación de datos";
+            if (txt_min.Enabled)
+            {
+                if (txt_min.Text == "" | txt_max.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar los valores de mínimo y máximo de la distribución.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    double minimo = Convert.ToDouble(txt_min.Text);
+                    double maximo = Convert.ToDouble(txt_max.Text);
+                    if (minimo >= maximo)
+                    {
+                        MessageBox.Show("El máximo debe ser mayor al mínimo.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+            }
+            if (txt_lambda.Enabled)
+            {
+                if (txt_lambda.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar el valor de lambda.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    double lambda = Convert.ToDouble(txt_lambda.Text);
+                    if (lambda <= 0)
+                    {
+                        MessageBox.Show("El valor de lambda debe ser un número positivo.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+            }
+            if (txt_media.Enabled)
+            {
+                if (txt_media.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar el valor de la media.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    if (cbo_distrib.Text == "Exponencial")
+                    {
+                        double media = Convert.ToDouble(txt_media.Text);
+                        if (media <= 0)
+                        {
+                            MessageBox.Show("El valor de la media de la distribución exponencial debe ser un número positivo.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                    }
+                }
+            }
+            if (txt_desv.Enabled)
+            {
+                if (txt_desv.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar la desviación estándar.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    double desviacion = Convert.ToDouble(txt_desv.Text);
+                    if (desviacion <= 0)
+                    {
+                        MessageBox.Show("El valor de la desviación estándar debe ser un número positivo.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+            }
+            if (txt_n.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un tamaño de muestra.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                if (Convert.ToInt32(txt_n.Text) <= 0)
+                {
+                    MessageBox.Show("El tamaño de muestra debe ser positivo.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            if (txt_intervalos.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una cantidad de intervalos.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                if (Convert.ToInt32(txt_intervalos.Text) <= 0)
+                {
+                    MessageBox.Show("La cantidad de intervalos debe ser positiva.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return true;
         }
 
         public double[] generarValores()
@@ -73,11 +180,9 @@ namespace WindowsFormsApplication1
             lst_distrib.Items.Clear();
             numeros = null;
 
-            //Creo el objeto de la clase Random 
-            Random RND = new Random();
             int n = Convert.ToInt32(txt_n.Text);
 
-            //Creamos un array que va a contener cantidad aleatoria de numeros que ingresamos por el texbox
+            //Creamos un array que va a contener cantidad aleatoria de numeros que ingresamos por el textbox
             numeros = new double[n];
 
             //Recorremos el array y vamos asignando a cada posición un número aleatorio
@@ -394,17 +499,13 @@ namespace WindowsFormsApplication1
             int intervalos = Convert.ToInt32(txt_intervalos.Text);
 
             double max = numeros[0];
-            double intSig = 0;
             int frec = 0;
-            double marcaClase = 0;
             double j = 0;
 
             double lambdaPoisson = Convert.ToDouble(txt_lambda.Text);
 
             double poAc = 0;
             double peAc = 0;
-            double abs = 0;
-            int numero = 0;
 
             // Intervalos
             for (int i = 0; i < n; i++)
@@ -416,11 +517,17 @@ namespace WindowsFormsApplication1
             }
             max++;
 
-            double cteIntervalo = max / intervalos;  // Calculo del paso
+            double marcaClase;
+            double cteIntervalo = Math.Ceiling(max / intervalos);  // Calculo del paso
+            double intSig = cteIntervalo;
+            int numero;
             for (numero = 0; numero < intervalos; numero++)
             {
-                intSig = j + cteIntervalo;
-                marcaClase = (intSig + j) / 2;
+                if (cteIntervalo == 1)
+                    marcaClase = j;
+                else
+                    marcaClase = (j + intSig) / 2;
+
                 for (int i = 0; i < n; i++)
                 {
                     if (numeros[i] >= j && numeros[i] < intSig)
@@ -429,25 +536,25 @@ namespace WindowsFormsApplication1
 
                     }
                 }
-                
+
                 double pe = ProbIntervaloPoisson(j, intSig, lambdaPoisson);
                 double po = Po(frec, n);
                 double fe = pe * n;
                 poAc += po;
                 peAc += pe;
-                abs = Math.Abs(poAc - peAc);
+                double abs = Math.Abs(poAc - peAc);
 
                 chrt_histograma.Series["Frecuencia"].Points.AddXY(Math.Round(marcaClase, 4), frec);
 
                 DataRow dr = dt.NewRow();
 
-                dr["N°"] = numero+1;
+                dr["N°"] = numero + 1;
                 dr["MIN"] = Math.Round(j, 4);
                 dr["MAX"] = Math.Round(intSig, 4);
                 dr["MC"] = Math.Round(marcaClase, 4);
                 dr["FO"] = frec;
                 dr["FE"] = Math.Round(fe, 4);
-                dr["PO"] = Math.Round((double)frec/n, 4);
+                dr["PO"] = Math.Round((double)frec / n, 4);
                 dr["PE"] = Math.Round(pe, 4);
                 dr["POAc"] = Math.Round(poAc, 4);
                 dr["PEAc"] = Math.Round(peAc, 4);
@@ -457,7 +564,7 @@ namespace WindowsFormsApplication1
 
                 frec = 0;
                 j += cteIntervalo;
-
+                intSig += cteIntervalo;
             }
 
             dgv_frec.DataSource = dt;
@@ -516,7 +623,7 @@ namespace WindowsFormsApplication1
                 lbl_resultadoPrueba.Text += " SE RECHAZA la prueba.";
 
             }
-            MessageBox.Show(lbl_resultadoPrueba.Text);
+            MessageBox.Show(lbl_resultadoPrueba.Text, "Prueba de Kolmogorov-Smirnov", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
