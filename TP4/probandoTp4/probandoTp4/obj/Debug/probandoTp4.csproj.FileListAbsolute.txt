@@ -1,0 +1,10 @@
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe.config
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\bin\Debug\probandoTp4.pdb
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.AssemblyReference.cache
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.Properties.Resources.resources
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.GenerateResource.cache
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
+C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
