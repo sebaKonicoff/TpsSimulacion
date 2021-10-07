@@ -1,0 +1,3 @@
+Ingresar a la carpeta Principal
+Dentro de esta buscar el .exe llamado
+Principal.exe
