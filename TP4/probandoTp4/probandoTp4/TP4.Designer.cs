@@ -79,6 +79,27 @@ namespace probandoTp4
             this.gbDatosCongruencial = new System.Windows.Forms.GroupBox();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvFrec = new System.Windows.Forms.DataGridView();
+            this.limpiar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.gbxGeneracionNros.SuspendLayout();
             this.gbDatosActividades.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -123,6 +144,26 @@ namespace probandoTp4
             // 
             // gbDatosActividades
             // 
+            this.gbDatosActividades.Controls.Add(this.textBox6);
+            this.gbDatosActividades.Controls.Add(this.textBox7);
+            this.gbDatosActividades.Controls.Add(this.textBox8);
+            this.gbDatosActividades.Controls.Add(this.textBox9);
+            this.gbDatosActividades.Controls.Add(this.textBox10);
+            this.gbDatosActividades.Controls.Add(this.label25);
+            this.gbDatosActividades.Controls.Add(this.label24);
+            this.gbDatosActividades.Controls.Add(this.label23);
+            this.gbDatosActividades.Controls.Add(this.label22);
+            this.gbDatosActividades.Controls.Add(this.label21);
+            this.gbDatosActividades.Controls.Add(this.textBox1);
+            this.gbDatosActividades.Controls.Add(this.textBox2);
+            this.gbDatosActividades.Controls.Add(this.textBox3);
+            this.gbDatosActividades.Controls.Add(this.textBox4);
+            this.gbDatosActividades.Controls.Add(this.textBox5);
+            this.gbDatosActividades.Controls.Add(this.label10);
+            this.gbDatosActividades.Controls.Add(this.label9);
+            this.gbDatosActividades.Controls.Add(this.label8);
+            this.gbDatosActividades.Controls.Add(this.label7);
+            this.gbDatosActividades.Controls.Add(this.label6);
             this.gbDatosActividades.Controls.Add(this.txtMaxA5);
             this.gbDatosActividades.Controls.Add(this.txtMaxA4);
             this.gbDatosActividades.Controls.Add(this.txtMaxA3);
@@ -155,42 +196,42 @@ namespace probandoTp4
             this.gbDatosActividades.Controls.Add(this.label1);
             this.gbDatosActividades.Location = new System.Drawing.Point(279, 21);
             this.gbDatosActividades.Name = "gbDatosActividades";
-            this.gbDatosActividades.Size = new System.Drawing.Size(523, 174);
+            this.gbDatosActividades.Size = new System.Drawing.Size(948, 174);
             this.gbDatosActividades.TabIndex = 1;
             this.gbDatosActividades.TabStop = false;
             this.gbDatosActividades.Text = "Datos Actividades";
             // 
             // txtMaxA5
             // 
-            this.txtMaxA5.Location = new System.Drawing.Point(417, 142);
+            this.txtMaxA5.Location = new System.Drawing.Point(417, 144);
             this.txtMaxA5.Name = "txtMaxA5";
             this.txtMaxA5.Size = new System.Drawing.Size(100, 20);
             this.txtMaxA5.TabIndex = 29;
             // 
             // txtMaxA4
             // 
-            this.txtMaxA4.Location = new System.Drawing.Point(417, 119);
+            this.txtMaxA4.Location = new System.Drawing.Point(417, 116);
             this.txtMaxA4.Name = "txtMaxA4";
             this.txtMaxA4.Size = new System.Drawing.Size(100, 20);
             this.txtMaxA4.TabIndex = 28;
             // 
             // txtMaxA3
             // 
-            this.txtMaxA3.Location = new System.Drawing.Point(417, 93);
+            this.txtMaxA3.Location = new System.Drawing.Point(417, 88);
             this.txtMaxA3.Name = "txtMaxA3";
             this.txtMaxA3.Size = new System.Drawing.Size(100, 20);
             this.txtMaxA3.TabIndex = 27;
             // 
             // txtMaxA2
             // 
-            this.txtMaxA2.Location = new System.Drawing.Point(417, 65);
+            this.txtMaxA2.Location = new System.Drawing.Point(417, 60);
             this.txtMaxA2.Name = "txtMaxA2";
             this.txtMaxA2.Size = new System.Drawing.Size(100, 20);
             this.txtMaxA2.TabIndex = 26;
             // 
             // txtMaxA1
             // 
-            this.txtMaxA1.Location = new System.Drawing.Point(417, 36);
+            this.txtMaxA1.Location = new System.Drawing.Point(417, 32);
             this.txtMaxA1.Name = "txtMaxA1";
             this.txtMaxA1.Size = new System.Drawing.Size(100, 20);
             this.txtMaxA1.TabIndex = 25;
@@ -199,7 +240,7 @@ namespace probandoTp4
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(359, 66);
+            this.label15.Location = new System.Drawing.Point(359, 63);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 15);
             this.label15.TabIndex = 24;
@@ -209,7 +250,7 @@ namespace probandoTp4
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(359, 143);
+            this.label14.Location = new System.Drawing.Point(359, 147);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 15);
             this.label14.TabIndex = 23;
@@ -219,7 +260,7 @@ namespace probandoTp4
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(359, 120);
+            this.label13.Location = new System.Drawing.Point(359, 119);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 22;
@@ -229,7 +270,7 @@ namespace probandoTp4
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(359, 93);
+            this.label12.Location = new System.Drawing.Point(359, 91);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
             this.label12.TabIndex = 21;
@@ -239,7 +280,7 @@ namespace probandoTp4
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(359, 37);
+            this.label11.Location = new System.Drawing.Point(359, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 15);
             this.label11.TabIndex = 20;
@@ -247,7 +288,7 @@ namespace probandoTp4
             // 
             // txtMinA5
             // 
-            this.txtMinA5.Location = new System.Drawing.Point(253, 142);
+            this.txtMinA5.Location = new System.Drawing.Point(253, 144);
             this.txtMinA5.Name = "txtMinA5";
             this.txtMinA5.Size = new System.Drawing.Size(100, 20);
             this.txtMinA5.TabIndex = 19;
@@ -261,21 +302,21 @@ namespace probandoTp4
             // 
             // txtMinA2
             // 
-            this.txtMinA2.Location = new System.Drawing.Point(253, 65);
+            this.txtMinA2.Location = new System.Drawing.Point(253, 60);
             this.txtMinA2.Name = "txtMinA2";
             this.txtMinA2.Size = new System.Drawing.Size(100, 20);
             this.txtMinA2.TabIndex = 17;
             // 
             // txtMinA3
             // 
-            this.txtMinA3.Location = new System.Drawing.Point(253, 91);
+            this.txtMinA3.Location = new System.Drawing.Point(253, 88);
             this.txtMinA3.Name = "txtMinA3";
             this.txtMinA3.Size = new System.Drawing.Size(100, 20);
             this.txtMinA3.TabIndex = 16;
             // 
             // txtMinA1
             // 
-            this.txtMinA1.Location = new System.Drawing.Point(253, 36);
+            this.txtMinA1.Location = new System.Drawing.Point(253, 32);
             this.txtMinA1.Name = "txtMinA1";
             this.txtMinA1.Size = new System.Drawing.Size(100, 20);
             this.txtMinA1.TabIndex = 15;
@@ -284,7 +325,7 @@ namespace probandoTp4
             // 
             this.lblA5.AutoSize = true;
             this.lblA5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA5.Location = new System.Drawing.Point(198, 143);
+            this.lblA5.Location = new System.Drawing.Point(198, 147);
             this.lblA5.Name = "lblA5";
             this.lblA5.Size = new System.Drawing.Size(49, 15);
             this.lblA5.TabIndex = 14;
@@ -294,7 +335,7 @@ namespace probandoTp4
             // 
             this.lblA4.AutoSize = true;
             this.lblA4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA4.Location = new System.Drawing.Point(198, 116);
+            this.lblA4.Location = new System.Drawing.Point(198, 119);
             this.lblA4.Name = "lblA4";
             this.lblA4.Size = new System.Drawing.Size(49, 15);
             this.lblA4.TabIndex = 13;
@@ -304,7 +345,7 @@ namespace probandoTp4
             // 
             this.lblA3.AutoSize = true;
             this.lblA3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA3.Location = new System.Drawing.Point(198, 93);
+            this.lblA3.Location = new System.Drawing.Point(198, 91);
             this.lblA3.Name = "lblA3";
             this.lblA3.Size = new System.Drawing.Size(49, 15);
             this.lblA3.TabIndex = 12;
@@ -314,7 +355,7 @@ namespace probandoTp4
             // 
             this.lblA2.AutoSize = true;
             this.lblA2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA2.Location = new System.Drawing.Point(198, 66);
+            this.lblA2.Location = new System.Drawing.Point(198, 63);
             this.lblA2.Name = "lblA2";
             this.lblA2.Size = new System.Drawing.Size(49, 15);
             this.lblA2.TabIndex = 11;
@@ -324,7 +365,7 @@ namespace probandoTp4
             // 
             this.lblA1.AutoSize = true;
             this.lblA1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA1.Location = new System.Drawing.Point(198, 37);
+            this.lblA1.Location = new System.Drawing.Point(198, 35);
             this.lblA1.Name = "lblA1";
             this.lblA1.Size = new System.Drawing.Size(49, 15);
             this.lblA1.TabIndex = 10;
@@ -338,7 +379,7 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-            this.cmbA5.Location = new System.Drawing.Point(71, 142);
+            this.cmbA5.Location = new System.Drawing.Point(71, 144);
             this.cmbA5.Name = "cmbA5";
             this.cmbA5.Size = new System.Drawing.Size(121, 21);
             this.cmbA5.TabIndex = 9;
@@ -352,7 +393,7 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-            this.cmbA4.Location = new System.Drawing.Point(71, 115);
+            this.cmbA4.Location = new System.Drawing.Point(71, 116);
             this.cmbA4.Name = "cmbA4";
             this.cmbA4.Size = new System.Drawing.Size(121, 21);
             this.cmbA4.TabIndex = 8;
@@ -380,7 +421,7 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-            this.cmbA2.Location = new System.Drawing.Point(71, 61);
+            this.cmbA2.Location = new System.Drawing.Point(71, 60);
             this.cmbA2.Name = "cmbA2";
             this.cmbA2.Size = new System.Drawing.Size(121, 21);
             this.cmbA2.TabIndex = 6;
@@ -394,7 +435,7 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-            this.cmbA1.Location = new System.Drawing.Point(71, 34);
+            this.cmbA1.Location = new System.Drawing.Point(71, 32);
             this.cmbA1.Name = "cmbA1";
             this.cmbA1.Size = new System.Drawing.Size(121, 21);
             this.cmbA1.TabIndex = 5;
@@ -404,7 +445,7 @@ namespace probandoTp4
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 147);
+            this.label5.Location = new System.Drawing.Point(20, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 16);
             this.label5.TabIndex = 4;
@@ -414,7 +455,7 @@ namespace probandoTp4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 120);
+            this.label4.Location = new System.Drawing.Point(20, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 16);
             this.label4.TabIndex = 3;
@@ -424,7 +465,7 @@ namespace probandoTp4
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 93);
+            this.label3.Location = new System.Drawing.Point(20, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 16);
             this.label3.TabIndex = 2;
@@ -434,7 +475,7 @@ namespace probandoTp4
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 66);
+            this.label2.Location = new System.Drawing.Point(20, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 16);
             this.label2.TabIndex = 1;
@@ -459,7 +500,7 @@ namespace probandoTp4
             this.groupBox2.Size = new System.Drawing.Size(247, 74);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Seleccionar datos y distribuciones";
+            this.groupBox2.Text = "Seleccionar metodo para generar datos";
             // 
             // rbSeleccionDatos
             // 
@@ -575,7 +616,7 @@ namespace probandoTp4
             this.gbDatosCongruencial.Controls.Add(this.label19);
             this.gbDatosCongruencial.Controls.Add(this.txtSemilla);
             this.gbDatosCongruencial.Controls.Add(this.label20);
-            this.gbDatosCongruencial.Location = new System.Drawing.Point(822, 31);
+            this.gbDatosCongruencial.Location = new System.Drawing.Point(18, 223);
             this.gbDatosCongruencial.Name = "gbDatosCongruencial";
             this.gbDatosCongruencial.Size = new System.Drawing.Size(376, 88);
             this.gbDatosCongruencial.TabIndex = 13;
@@ -584,7 +625,7 @@ namespace probandoTp4
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(822, 137);
+            this.btnCalcular.Location = new System.Drawing.Point(432, 223);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(114, 42);
             this.btnCalcular.TabIndex = 14;
@@ -595,16 +636,187 @@ namespace probandoTp4
             // dgvFrec
             // 
             this.dgvFrec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFrec.Location = new System.Drawing.Point(12, 212);
+            this.dgvFrec.Location = new System.Drawing.Point(18, 344);
             this.dgvFrec.Name = "dgvFrec";
             this.dgvFrec.Size = new System.Drawing.Size(1215, 254);
             this.dgvFrec.TabIndex = 15;
+            // 
+            // limpiar
+            // 
+            this.limpiar.Location = new System.Drawing.Point(432, 271);
+            this.limpiar.Name = "limpiar";
+            this.limpiar.Size = new System.Drawing.Size(114, 42);
+            this.limpiar.TabIndex = 16;
+            this.limpiar.Text = "Limpiar datos";
+            this.limpiar.UseVisualStyleBackColor = true;
+            this.limpiar.Click += new System.EventHandler(this.limpiar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(540, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Media";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(540, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Media";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(540, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Media";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(540, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Media";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(540, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Media";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(582, 145);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 39;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(582, 117);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 38;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(582, 89);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 37;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(582, 61);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 36;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(582, 33);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 35;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(700, 35);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 13);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Desviación";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(700, 149);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(60, 13);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "Desviación";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(700, 121);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 13);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "Desviación";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(700, 93);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(60, 13);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "Desviación";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(700, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(60, 13);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "Desviación";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(766, 146);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 49;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(766, 118);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 48;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(766, 90);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 47;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(766, 62);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 46;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(766, 34);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 45;
             // 
             // TP4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1239, 629);
+            this.Controls.Add(this.limpiar);
             this.Controls.Add(this.dgvFrec);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.gbDatosCongruencial);
@@ -614,7 +826,7 @@ namespace probandoTp4
             this.Controls.Add(this.gbDatosActividades);
             this.Controls.Add(this.gbxGeneracionNros);
             this.Name = "TP4";
-            this.Text = "Form1";
+            this.Text = "TP4";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbxGeneracionNros.ResumeLayout(false);
             this.gbxGeneracionNros.PerformLayout();
@@ -682,6 +894,27 @@ namespace probandoTp4
         private System.Windows.Forms.GroupBox gbDatosCongruencial;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.DataGridView dgvFrec;
+		private System.Windows.Forms.Button limpiar;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 

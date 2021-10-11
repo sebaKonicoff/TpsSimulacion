@@ -33,7 +33,32 @@ namespace probandoTp4
                 gbDatosActividades.Enabled = false;
             }
         }
-        
+
+		private void limpiar_Click(object sender, EventArgs e)
+		{
+            dgvFrec.DataSource = null;
+            dgvFrec.Refresh();
+            txtNroSimulaciones.Text = "";
+            cmbA1.Text="";
+            cmbA2.Text = "";
+            cmbA3.Text = "";
+            cmbA5.Text = "";
+            txtMinA1.Text = "";
+            txtMinA2.Text = "";
+            txtMinA3.Text = "";
+            txtMinA4.Text = "";
+            txtMinA5.Text = "";
+            txtMaxA1.Text = "";
+            txtMaxA2.Text = "";
+            txtMaxA3.Text = "";
+            txtMaxA4.Text = "";
+            txtMaxA5.Text = "";
+            txtSemilla.Text = "";
+            txtCteA.Text = "";
+            txtCteC.Text = "";
+            txtCteM.Text = "";
+        }
+
         private void rbSeleccionDatos_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSeleccionDatos.Checked)
@@ -119,6 +144,11 @@ namespace probandoTp4
 
         public void seleccionDatos()
         {
+            if (int.Parse(txtNroSimulaciones.Text) <= 0 || txtNroSimulaciones.Text == "") 
+            {
+                MessageBox.Show("Debe ingresar un nunmero de simulaciones válidos!");
+            }
+
             if (rbPorDefecto.Checked)
             {
                 minA1 = 20;
@@ -136,10 +166,26 @@ namespace probandoTp4
                 distribucion_seleccionadaA3 = 2;
                 distribucion_seleccionadaA4 = 0;
                 distribucion_seleccionadaA5 = 2;
+
             }
             else
             {
+                if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
+                {
+                    MessageBox.Show("ERROR! Debe seleccionar una opcion de los combos");
+                }
                 
+
+                if (int.Parse(txtMinA1.Text) <= 0 || txtMinA1.Text == "" || int.Parse(txtMinA2.Text) <= 0 || txtMinA2.Text == ""
+                    || int.Parse(txtMinA3.Text) <= 0 || txtMinA3.Text == "" || int.Parse(txtMinA4.Text) <= 0 || txtMinA4.Text == ""
+                    || int.Parse(txtMinA5.Text) <= 0 || txtMinA5.Text == "")
+				{
+                    MessageBox.Show("ERROR! Debe Ingresar valores válidos");
+                }
+
+                
+
+
             }
         }
         /// fin de las verificaciones
