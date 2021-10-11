@@ -8,3 +8,13 @@ C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj
 C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
 C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
 C:\Users\sebak\source\repos\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe.config
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.pdb
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.AssemblyReference.cache
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.Properties.Resources.resources
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.GenerateResource.cache
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
+C:\Users\Lucas\Desktop\Cosas facultad\SIM\Cosas Mias\SIMULACION\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
