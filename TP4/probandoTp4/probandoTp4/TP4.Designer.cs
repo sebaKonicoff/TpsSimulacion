@@ -407,17 +407,17 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-            this.cmbA3.Location = new System.Drawing.Point(71, 88);
-            this.cmbA3.Name = "cmbA3";
-            this.cmbA3.Size = new System.Drawing.Size(121, 21);
-            this.cmbA3.TabIndex = 7;
-            this.cmbA3.SelectedIndexChanged += new System.EventHandler(this.cmbA3_SelectedIndexChanged);
-            // 
-            // cmbA2
-            // 
-            this.cmbA2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbA2.FormattingEnabled = true;
-            this.cmbA2.Items.AddRange(new object[] {
+			this.cmbA3.Location = new System.Drawing.Point(71, 88);
+			this.cmbA3.Name = "cmbA3";
+			this.cmbA3.Size = new System.Drawing.Size(121, 21);
+			this.cmbA3.TabIndex = 7;
+			this.cmbA3.SelectedIndexChanged += new System.EventHandler(this.cmbA3_SelectedIndexChanged);
+			// 
+			// cmbA2
+			// 
+			this.cmbA2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbA2.FormattingEnabled = true;
+			this.cmbA2.Items.AddRange(new object[] {
             "Uniforme",
             "Normal",
             "Exponencial"});
