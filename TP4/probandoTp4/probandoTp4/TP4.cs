@@ -16,7 +16,7 @@ namespace probandoTp4
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
         double[] vecActual, vecAnterior;
         double minA1, minA2, minA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, semilla, cteA, cteC, cteM;
-        Boolean primerSimulacion = true;
+        bool primerSimulacion = true;
         DataTable dt = new DataTable();
         Random r = new Random();
         double contDuracion = 0;
@@ -71,6 +71,19 @@ namespace probandoTp4
         {
             gbDatosCongruencial.Enabled = false;
             gbDatosActividades.Enabled = false;
+            cmbA1.SelectedIndex = 0;
+            txtMinA1.Text = "20";
+            txtMaxA1.Text = "30";
+            cmbA2.SelectedIndex = 0;
+            txtMinA2.Text = "30";
+            txtMaxA2.Text = "50";
+            cmbA3.SelectedIndex = 2;
+            txtMediaA3.Text = "30";
+            cmbA4.SelectedIndex = 0;
+            txtMinA4.Text = "10";
+            txtMaxA4.Text = "20";
+            cmbA5.SelectedIndex = 2;
+            txtMediaA5.Text = "5";
             dt.Columns.Add("Nro");
             dt.Columns.Add("A1");
             dt.Columns.Add("A2");
@@ -102,44 +115,59 @@ namespace probandoTp4
                 gbDatosCongruencial.Enabled = false;
             }
         }
+        private void DistribucionSeleccionada(int index, TextBox min, TextBox max, TextBox media, TextBox desv)
+        {
+            switch (index)
+            {
+                case 0:
+                    min.Enabled = true;
+                    max.Enabled = true;
+                    media.Enabled = false;
+                    media.Text = "";
+                    desv.Enabled = false;
+                    desv.Text = "";
+                    break;
+                case 1:
+                    min.Enabled = false;
+                    min.Text = "";
+                    max.Enabled = false;
+                    max.Text = "";
+                    media.Enabled = true;
+                    desv.Enabled = true;
+                    break;
+                case 2:
+                    min.Enabled = false;
+                    min.Text = "";
+                    max.Enabled = false;
+                    max.Text = "";
+                    media.Enabled = true;
+                    desv.Enabled = false;
+                    desv.Text = "";
+                    break;
+            }
+        }
         private void cmbA1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbA1.SelectedIndex == 2)
-            {
-                lblA1.Text = "Media";
-            }
+            DistribucionSeleccionada(cmbA1.SelectedIndex, txtMinA1, txtMaxA1, txtMediaA1, txtDesvA1);
         }
 
         private void cmbA2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbA1.SelectedIndex == 2)
-            {
-                lblA2.Text = "Media";
-            }
+            DistribucionSeleccionada(cmbA2.SelectedIndex, txtMinA2, txtMaxA2, txtMediaA2, txtDesvA2);
         }
-
         private void cmbA3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbA1.SelectedIndex == 2)
-            {
-                lblA3.Text = "Media";
-            }
+            DistribucionSeleccionada(cmbA3.SelectedIndex, txtMinA3, txtMaxA3, txtMediaA3, txtDesvA3);
         }
 
         private void cmbA4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbA1.SelectedIndex == 2)
-            {
-                lblA4.Text = "Media";
-            }
+            DistribucionSeleccionada(cmbA4.SelectedIndex, txtMinA4, txtMaxA4, txtMediaA4, txtDesvA4);
         }
 
         private void cmbA5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbA1.SelectedIndex == 2)
-            {
-                lblA5.Text = "Media";
-            }
+            DistribucionSeleccionada(cmbA5.SelectedIndex, txtMinA5, txtMaxA5, txtMediaA5, txtDesvA5);
         }
 
         public void seleccionDatos()

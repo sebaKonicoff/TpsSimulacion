@@ -33,6 +33,26 @@ namespace probandoTp4
             this.rbCongruencialMixto = new System.Windows.Forms.RadioButton();
             this.rbAleatorio = new System.Windows.Forms.RadioButton();
             this.gbDatosActividades = new System.Windows.Forms.GroupBox();
+            this.txtDesvA5 = new System.Windows.Forms.TextBox();
+            this.txtDesvA4 = new System.Windows.Forms.TextBox();
+            this.txtDesvA3 = new System.Windows.Forms.TextBox();
+            this.txtDesvA2 = new System.Windows.Forms.TextBox();
+            this.txtDesvA1 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtMediaA5 = new System.Windows.Forms.TextBox();
+            this.txtMediaA4 = new System.Windows.Forms.TextBox();
+            this.txtMediaA3 = new System.Windows.Forms.TextBox();
+            this.txtMediaA2 = new System.Windows.Forms.TextBox();
+            this.txtMediaA1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtMaxA5 = new System.Windows.Forms.TextBox();
             this.txtMaxA4 = new System.Windows.Forms.TextBox();
             this.txtMaxA3 = new System.Windows.Forms.TextBox();
@@ -80,26 +100,6 @@ namespace probandoTp4
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvFrec = new System.Windows.Forms.DataGridView();
             this.limpiar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.gbxGeneracionNros.SuspendLayout();
             this.gbDatosActividades.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,21 +144,21 @@ namespace probandoTp4
             // 
             // gbDatosActividades
             // 
-            this.gbDatosActividades.Controls.Add(this.textBox6);
-            this.gbDatosActividades.Controls.Add(this.textBox7);
-            this.gbDatosActividades.Controls.Add(this.textBox8);
-            this.gbDatosActividades.Controls.Add(this.textBox9);
-            this.gbDatosActividades.Controls.Add(this.textBox10);
+            this.gbDatosActividades.Controls.Add(this.txtDesvA5);
+            this.gbDatosActividades.Controls.Add(this.txtDesvA4);
+            this.gbDatosActividades.Controls.Add(this.txtDesvA3);
+            this.gbDatosActividades.Controls.Add(this.txtDesvA2);
+            this.gbDatosActividades.Controls.Add(this.txtDesvA1);
             this.gbDatosActividades.Controls.Add(this.label25);
             this.gbDatosActividades.Controls.Add(this.label24);
             this.gbDatosActividades.Controls.Add(this.label23);
             this.gbDatosActividades.Controls.Add(this.label22);
             this.gbDatosActividades.Controls.Add(this.label21);
-            this.gbDatosActividades.Controls.Add(this.textBox1);
-            this.gbDatosActividades.Controls.Add(this.textBox2);
-            this.gbDatosActividades.Controls.Add(this.textBox3);
-            this.gbDatosActividades.Controls.Add(this.textBox4);
-            this.gbDatosActividades.Controls.Add(this.textBox5);
+            this.gbDatosActividades.Controls.Add(this.txtMediaA5);
+            this.gbDatosActividades.Controls.Add(this.txtMediaA4);
+            this.gbDatosActividades.Controls.Add(this.txtMediaA3);
+            this.gbDatosActividades.Controls.Add(this.txtMediaA2);
+            this.gbDatosActividades.Controls.Add(this.txtMediaA1);
             this.gbDatosActividades.Controls.Add(this.label10);
             this.gbDatosActividades.Controls.Add(this.label9);
             this.gbDatosActividades.Controls.Add(this.label8);
@@ -200,6 +200,166 @@ namespace probandoTp4
             this.gbDatosActividades.TabIndex = 1;
             this.gbDatosActividades.TabStop = false;
             this.gbDatosActividades.Text = "Datos Actividades";
+            // 
+            // txtDesvA5
+            // 
+            this.txtDesvA5.Location = new System.Drawing.Point(766, 146);
+            this.txtDesvA5.Name = "txtDesvA5";
+            this.txtDesvA5.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvA5.TabIndex = 49;
+            // 
+            // txtDesvA4
+            // 
+            this.txtDesvA4.Location = new System.Drawing.Point(766, 118);
+            this.txtDesvA4.Name = "txtDesvA4";
+            this.txtDesvA4.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvA4.TabIndex = 48;
+            // 
+            // txtDesvA3
+            // 
+            this.txtDesvA3.Location = new System.Drawing.Point(766, 90);
+            this.txtDesvA3.Name = "txtDesvA3";
+            this.txtDesvA3.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvA3.TabIndex = 47;
+            // 
+            // txtDesvA2
+            // 
+            this.txtDesvA2.Location = new System.Drawing.Point(766, 62);
+            this.txtDesvA2.Name = "txtDesvA2";
+            this.txtDesvA2.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvA2.TabIndex = 46;
+            // 
+            // txtDesvA1
+            // 
+            this.txtDesvA1.Location = new System.Drawing.Point(766, 34);
+            this.txtDesvA1.Name = "txtDesvA1";
+            this.txtDesvA1.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvA1.TabIndex = 45;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(700, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(60, 13);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "Desviación";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(700, 93);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(60, 13);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "Desviación";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(700, 121);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 13);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "Desviación";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(700, 149);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(60, 13);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "Desviación";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(700, 35);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 13);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Desviación";
+            // 
+            // txtMediaA5
+            // 
+            this.txtMediaA5.Location = new System.Drawing.Point(582, 145);
+            this.txtMediaA5.Name = "txtMediaA5";
+            this.txtMediaA5.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaA5.TabIndex = 39;
+            // 
+            // txtMediaA4
+            // 
+            this.txtMediaA4.Location = new System.Drawing.Point(582, 117);
+            this.txtMediaA4.Name = "txtMediaA4";
+            this.txtMediaA4.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaA4.TabIndex = 38;
+            // 
+            // txtMediaA3
+            // 
+            this.txtMediaA3.Location = new System.Drawing.Point(582, 89);
+            this.txtMediaA3.Name = "txtMediaA3";
+            this.txtMediaA3.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaA3.TabIndex = 37;
+            // 
+            // txtMediaA2
+            // 
+            this.txtMediaA2.Location = new System.Drawing.Point(582, 61);
+            this.txtMediaA2.Name = "txtMediaA2";
+            this.txtMediaA2.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaA2.TabIndex = 36;
+            // 
+            // txtMediaA1
+            // 
+            this.txtMediaA1.Location = new System.Drawing.Point(582, 33);
+            this.txtMediaA1.Name = "txtMediaA1";
+            this.txtMediaA1.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaA1.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(540, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Media";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(540, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Media";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(540, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Media";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(540, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Media";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(540, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Media";
             // 
             // txtMaxA5
             // 
@@ -407,17 +567,17 @@ namespace probandoTp4
             "Uniforme",
             "Normal",
             "Exponencial"});
-			this.cmbA3.Location = new System.Drawing.Point(71, 88);
-			this.cmbA3.Name = "cmbA3";
-			this.cmbA3.Size = new System.Drawing.Size(121, 21);
-			this.cmbA3.TabIndex = 7;
-			this.cmbA3.SelectedIndexChanged += new System.EventHandler(this.cmbA3_SelectedIndexChanged);
-			// 
-			// cmbA2
-			// 
-			this.cmbA2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbA2.FormattingEnabled = true;
-			this.cmbA2.Items.AddRange(new object[] {
+            this.cmbA3.Location = new System.Drawing.Point(71, 88);
+            this.cmbA3.Name = "cmbA3";
+            this.cmbA3.Size = new System.Drawing.Size(121, 21);
+            this.cmbA3.TabIndex = 7;
+            this.cmbA3.SelectedIndexChanged += new System.EventHandler(this.cmbA3_SelectedIndexChanged);
+            // 
+            // cmbA2
+            // 
+            this.cmbA2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbA2.FormattingEnabled = true;
+            this.cmbA2.Items.AddRange(new object[] {
             "Uniforme",
             "Normal",
             "Exponencial"});
@@ -651,166 +811,6 @@ namespace probandoTp4
             this.limpiar.UseVisualStyleBackColor = true;
             this.limpiar.Click += new System.EventHandler(this.limpiar_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(540, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Media";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(540, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Media";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(540, 92);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Media";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(540, 120);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 13);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "Media";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(540, 148);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Media";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(582, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 39;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(582, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 38;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(582, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 37;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(582, 61);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 36;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(582, 33);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 35;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(700, 35);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 13);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "Desviación";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(700, 149);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 13);
-            this.label22.TabIndex = 41;
-            this.label22.Text = "Desviación";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(700, 121);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(60, 13);
-            this.label23.TabIndex = 42;
-            this.label23.Text = "Desviación";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(700, 93);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(60, 13);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "Desviación";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(700, 65);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(60, 13);
-            this.label25.TabIndex = 44;
-            this.label25.Text = "Desviación";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(766, 146);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 49;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(766, 118);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 48;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(766, 90);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 47;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(766, 62);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 46;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(766, 34);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 45;
-            // 
             // TP4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,21 +895,21 @@ namespace probandoTp4
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.DataGridView dgvFrec;
 		private System.Windows.Forms.Button limpiar;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtDesvA5;
+        private System.Windows.Forms.TextBox txtDesvA4;
+        private System.Windows.Forms.TextBox txtDesvA3;
+        private System.Windows.Forms.TextBox txtDesvA2;
+        private System.Windows.Forms.TextBox txtDesvA1;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtMediaA5;
+        private System.Windows.Forms.TextBox txtMediaA4;
+        private System.Windows.Forms.TextBox txtMediaA3;
+        private System.Windows.Forms.TextBox txtMediaA2;
+        private System.Windows.Forms.TextBox txtMediaA1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
