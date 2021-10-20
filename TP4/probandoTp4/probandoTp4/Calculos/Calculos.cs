@@ -25,12 +25,13 @@ namespace probandoTp4.Distribucion
             return v;
 
         }
-        /*
+      
         // genera dos valores aleatorios aplicando la distribucion normal
         public static double[] generarNormal(int n, double media, double desviacion)
         {
-            pi = Math.PI;
-            r1 = new Random();
+            
+            double pi = Math.PI;
+            Random r1 = new Random();
 
             double[] v = new double[n];
 
@@ -53,6 +54,6 @@ namespace probandoTp4.Distribucion
 
             return v;
         
-        }*/
+        }
     }
 }

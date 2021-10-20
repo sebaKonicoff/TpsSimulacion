@@ -15,7 +15,7 @@ namespace probandoTp4
         enum tipo_distribucion { Uniforme, Normal, Exponencial };
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
         double[] vecActual, vecAnterior;
-        double minA1, minA2, minA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, semilla, cteA, cteC, cteM;
+        double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM;
         bool primerSimulacion = true;
         DataTable dt = new DataTable();
         Random r = new Random();
@@ -337,11 +337,13 @@ namespace probandoTp4
                 
             }
             v[0] = x;
-            v[1] = Distribucion.Distribuciones.generarUniforme(minA1, maxA1, v[1]);
+            v[1] = Distribucion.Distribuciones.generarUniforme(minA1,maxA1, v[1]);
             v[2] = Distribucion.Distribuciones.generarUniforme(minA2, maxA2, v[2]);
-            v[3] = Distribucion.Distribuciones.generarUniforme(minA3, maxA3, v[3]);
+            v[3] = Distribucion.Distribuciones.generarExponencial(mediaA3, v[3]);
             v[4] = Distribucion.Distribuciones.generarUniforme(minA4, maxA4, v[4]);
-            v[5] = Distribucion.Distribuciones.generarUniforme(minA5, maxA5, v[5]);
+            v[5] = Distribucion.Distribuciones.generarExponencial(mediaA5, v[5]);
+
+            
 
             return v;
         }

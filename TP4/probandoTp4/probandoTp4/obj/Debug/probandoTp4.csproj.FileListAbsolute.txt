@@ -28,3 +28,13 @@ C:\Users\HP 200\source\repos\sebaKonicoff\TpsSimulacion\TP4\probandoTp4\probando
 C:\Users\HP 200\source\repos\sebaKonicoff\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
 C:\Users\HP 200\source\repos\sebaKonicoff\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
 C:\Users\HP 200\source\repos\sebaKonicoff\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe.config
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.pdb
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csprojAssemblyReference.cache
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.Properties.Resources.resources
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.GenerateResource.cache
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
+C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
