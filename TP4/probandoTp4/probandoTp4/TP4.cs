@@ -170,82 +170,131 @@ namespace probandoTp4
             DistribucionSeleccionada(cmbA5.SelectedIndex, txtMinA5, txtMaxA5, txtMediaA5, txtDesvA5);
         }
 
-        public void seleccionDatos()
+        private bool ValidarDatos()
         {
             if (int.Parse(txtNroSimulaciones.Text) <= 0 || txtNroSimulaciones.Text == "") 
             {
-                MessageBox.Show("Debe ingresar un nunmero de simulaciones válidos!");
+                MessageBox.Show("Debe ingresar un nunmero de simulaciones válido!");
+                return false;
             }
-
-            if (rbPorDefecto.Checked)
+            if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
             {
-                minA1 = 20;
-                minA2 = 30;
-                minA3 = 40;
-                minA4 = 10;
-                minA5 = 4;
-                maxA1 = 30;
-                maxA2 = 50;
-                maxA3 = 0.115;
-                maxA4 = 20;
-                maxA5 = 5;
-                distribucion_seleccionadaA1 = 0;
-                distribucion_seleccionadaA2 = 0;
-                distribucion_seleccionadaA3 = 2;
-                distribucion_seleccionadaA4 = 0;
-                distribucion_seleccionadaA5 = 2;
-
+                MessageBox.Show("ERROR! Debe seleccionar una opcion de los combos");
+                return false;
             }
-            else
-            {
-                if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
-                {
-                    MessageBox.Show("ERROR! Debe seleccionar una opcion de los combos");
-                }
-                
-
-                if (int.Parse(txtMinA1.Text) <= 0 || txtMinA1.Text == "" || int.Parse(txtMinA2.Text) <= 0 || txtMinA2.Text == ""
-                    || int.Parse(txtMinA3.Text) <= 0 || txtMinA3.Text == "" || int.Parse(txtMinA4.Text) <= 0 || txtMinA4.Text == ""
-                    || int.Parse(txtMinA5.Text) <= 0 || txtMinA5.Text == "")
-				{
-                    MessageBox.Show("ERROR! Debe Ingresar valores válidos");
-                }
-
-                
-
-
+            if (!ValidarTodasUniformes() || !ValidarTodasExponenciales() || !ValidarTodasNormales())
+			{
+                MessageBox.Show("ERROR! Debe Ingresar valores válidos");
+                return false;
             }
+            return true;
         }
-        /// fin de las verificaciones
 
+        private bool ValidarTodasUniformes()
+        {
+            if (!ValidarUniforme(cmbA1, txtMinA1, txtMaxA1))
+                return false;
+            if (!ValidarUniforme(cmbA2, txtMinA2, txtMaxA2))
+                return false;
+            if (!ValidarUniforme(cmbA3, txtMinA3, txtMaxA3))
+                return false;
+            if (!ValidarUniforme(cmbA4, txtMinA4, txtMaxA4))
+                return false;
+            if (!ValidarUniforme(cmbA5, txtMinA5, txtMaxA5))
+                return false;
+            return true;
+        }
+        private bool ValidarTodasExponenciales()
+        {
+            if (!ValidarExponencial(cmbA1, txtMediaA1))
+                return false;
+            if (!ValidarExponencial(cmbA2, txtMediaA2))
+                return false;
+            if (!ValidarExponencial(cmbA3, txtMediaA3))
+                return false;
+            if (!ValidarExponencial(cmbA4, txtMediaA4))
+                return false;
+            if (!ValidarExponencial(cmbA5, txtMediaA5))
+                return false;
+            return true;
+        }
+        private bool ValidarTodasNormales()
+        {
+            if (!ValidarNormal(cmbA1, txtMediaA1, txtDesvA1))
+                return false;
+            if (!ValidarNormal(cmbA2, txtMediaA2, txtDesvA2))
+                return false;
+            if (!ValidarNormal(cmbA3, txtMediaA3, txtDesvA3))
+                return false;
+            if (!ValidarNormal(cmbA4, txtMediaA4, txtDesvA4))
+                return false;
+            if (!ValidarNormal(cmbA5, txtMediaA5, txtDesvA5))
+                return false;
+            return true;
+        }
+        private bool ValidarUniforme(ComboBox distribucion, TextBox min, TextBox max)
+        {
+            if (distribucion.SelectedIndex == 0)
+            {
+                if (min.Text == "" || max.Text == "")
+                    return false;
+                if (Convert.ToInt32(min.Text) >= Convert.ToInt32(max.Text))
+                    return false;
+                if (Convert.ToInt32(min.Text) <= 0)
+                    return false;
+            }
+            return true;
+        }
+
+        private bool ValidarExponencial(ComboBox distribucion, TextBox media)
+        {
+            if (distribucion.SelectedIndex == 2)
+            {
+                if (media.Text == "")
+                    return false;
+                if (Convert.ToInt32(media.Text) <= 0)
+                    return false;
+            }
+            return true;
+        }
+        private bool ValidarNormal(ComboBox distribucion, TextBox media, TextBox desviacion)
+        {
+            if (distribucion.SelectedIndex == 1)
+            {
+                if (media.Text == "" || desviacion.Text == "")
+                    return false;
+                if (Convert.ToInt32(media.Text) <= 0 || Convert.ToInt32(desviacion.Text) <= 0)
+                    return false;
+            }
+            return true;
+        }
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            dgvFrec.DataSource = null;
-            dgvFrec.Refresh();
-            vecActual = new double[15];
-            vecAnterior = new double[15];
-
-
-            //le damos los valores por defecto o los ingresados por teclado
-            this.seleccionDatos();
-
-            double n = Convert.ToDouble(txtNroSimulaciones.Text);
-
-            
-            for (int i = 1; i <= n; i++)
+            if (ValidarDatos())
             {
-                vecActual = generarPrimerosValores(vecActual);
-                //obtenemos el tiempo de cada camino y el camino más largo
-                vecActual = tiempoCamino(vecActual);
-                //vecActual[10] = Math.Round((vecActual[9] + vecAnterior[10]) / i ,3);//la duracion promedio
-                durPromedio(vecActual, i);
-                identMaxMin(vecActual, vecAnterior);
-                probOcurrencia45Dias(vecActual, i);
-                
+                dgvFrec.DataSource = null;
+                dgvFrec.Refresh();
+                vecActual = new double[15];
+                vecAnterior = new double[15];
 
-                //MessageBox.Show("Tamaño del vector: " + vecActual.Length);
-                agregarDatosTabla(vecActual, i);
-                vecAnterior = vecActual;
+                double n = Convert.ToDouble(txtNroSimulaciones.Text);
+
+
+                for (int i = 1; i <= n; i++)
+                {
+                    vecActual = generarPrimerosValores(vecActual);
+                    //obtenemos el tiempo de cada camino y el camino más largo
+                    vecActual = tiempoCamino(vecActual);
+                    //vecActual[10] = Math.Round((vecActual[9] + vecAnterior[10]) / i ,3);//la duracion promedio
+                    durPromedio(vecActual, i);
+                    identMaxMin(vecActual, vecAnterior);
+                    probOcurrencia45Dias(vecActual, i);
+
+
+                    //MessageBox.Show("Tamaño del vector: " + vecActual.Length);
+                    agregarDatosTabla(vecActual, i);
+                    vecAnterior = vecActual;
+                }
             }
             
         }
