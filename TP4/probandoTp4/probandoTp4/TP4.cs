@@ -16,6 +16,7 @@ namespace probandoTp4
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
         double[] vecActual, vecAnterior;
         double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM;
+        double medA1, medA2, medA3, medA4, medA5, desvA1, desvA2, desvA3, desvA4, desvA5;
         bool primerSimulacion = true;
         DataTable dt = new DataTable();
         Random r = new Random();
@@ -37,6 +38,7 @@ namespace probandoTp4
 		private void limpiar_Click(object sender, EventArgs e)
 		{
             dgvFrec.DataSource = null;
+            dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
             txtNroSimulaciones.Text = "";
             cmbA1.Text="";
@@ -57,6 +59,8 @@ namespace probandoTp4
             txtCteA.Text = "";
             txtCteC.Text = "";
             txtCteM.Text = "";
+            vecActual = new double [15];
+            vecAnterior = new double[15];
         }
 
         private void rbSeleccionDatos_CheckedChanged(object sender, EventArgs e)
@@ -170,11 +174,36 @@ namespace probandoTp4
             DistribucionSeleccionada(cmbA5.SelectedIndex, txtMinA5, txtMaxA5, txtMediaA5, txtDesvA5);
         }
 
+        public void validacionTxt()
+        {
+            if (txtMinA1.Text == "") { txtMinA1.Text = "0"; }
+            if (txtMinA2.Text == "") { txtMinA2.Text = "0"; }
+            if (txtMinA3.Text == "") { txtMinA3.Text = "0"; }
+            if (txtMinA4.Text == "") { txtMinA4.Text = "0"; }
+            if (txtMinA5.Text == "") { txtMinA5.Text = "0"; }
+            if (txtMaxA1.Text == "") { txtMaxA1.Text = "0"; }
+            if (txtMaxA2.Text == "") { txtMaxA2.Text = "0"; }
+            if (txtMaxA3.Text == "") { txtMaxA3.Text = "0"; }
+            if (txtMaxA4.Text == "") { txtMaxA4.Text = "0"; }
+            if (txtMaxA5.Text == "") { txtMaxA5.Text = "0"; }
+            if (txtMediaA1.Text == "") { txtMediaA1.Text = "0"; }
+            if (txtMediaA2.Text == "") { txtMediaA2.Text = "0"; }
+            if (txtMediaA3.Text == "") { txtMediaA3.Text = "0"; }
+            if (txtMediaA4.Text == "") { txtMediaA4.Text = "0"; }
+            if (txtMediaA5.Text == "") { txtMediaA5.Text = "0"; }
+            if (txtDesvA1.Text == "") { txtDesvA1.Text = "0"; }
+            if (txtDesvA2.Text == "") { txtDesvA2.Text = "0"; }
+            if (txtDesvA3.Text == "") { txtDesvA3.Text = "0"; }
+            if (txtDesvA4.Text == "") { txtDesvA4.Text = "0"; }
+            if (txtDesvA5.Text == "") { txtDesvA5.Text = "0"; }
+
+        }
         public void seleccionDatos()
         {
-            if (int.Parse(txtNroSimulaciones.Text) <= 0 || txtNroSimulaciones.Text == "") 
+            string val = "Validación de datos";
+            if (txtNroSimulaciones.Text == "")
             {
-                MessageBox.Show("Debe ingresar un nunmero de simulaciones válidos!");
+                MessageBox.Show("Debe ingresar un nunmero de simulaciones válidos!.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             if (rbPorDefecto.Checked)
@@ -200,22 +229,33 @@ namespace probandoTp4
             }
             else
             {
-                if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
-                {
-                    MessageBox.Show("ERROR! Debe seleccionar una opcion de los combos");
-                }
+                validacionTxt();
                 
-
-                if (int.Parse(txtMinA1.Text) <= 0 || txtMinA1.Text == "" || int.Parse(txtMinA2.Text) <= 0 || txtMinA2.Text == ""
-                    || int.Parse(txtMinA3.Text) <= 0 || txtMinA3.Text == "" || int.Parse(txtMinA4.Text) <= 0 || txtMinA4.Text == ""
-                    || int.Parse(txtMinA5.Text) <= 0 || txtMinA5.Text == "")
-				{
-                    MessageBox.Show("ERROR! Debe Ingresar valores válidos");
-                }
-
-                
-
-
+                minA1 = int.Parse(txtMinA1.Text);
+                minA2 = int.Parse(txtMinA2.Text);
+                minA3 = int.Parse(txtMinA3.Text);
+                minA4 = int.Parse(txtMinA4.Text);
+                minA5 = int.Parse(txtMinA5.Text);
+                maxA1 = int.Parse(txtMaxA1.Text);
+                maxA2 = int.Parse(txtMaxA2.Text);
+                maxA3 = int.Parse(txtMaxA3.Text);
+                maxA4 = int.Parse(txtMaxA4.Text);
+                maxA5 = int.Parse(txtMaxA5.Text);
+                medA1 = int.Parse(txtMediaA1.Text);
+                medA2 = int.Parse(txtMediaA2.Text);
+                medA3 = int.Parse(txtMediaA3.Text);
+                medA4 = int.Parse(txtMediaA4.Text);
+                medA5 = int.Parse(txtMediaA5.Text);
+                desvA1 = int.Parse(txtDesvA1.Text);
+                desvA2 = int.Parse(txtDesvA2.Text);
+                desvA3 = int.Parse(txtDesvA3.Text);
+                desvA4 = int.Parse(txtDesvA4.Text);
+                desvA5 = int.Parse(txtDesvA5.Text);
+                distribucion_seleccionadaA1 = cmbA1.SelectedIndex;
+                distribucion_seleccionadaA2 = cmbA2.SelectedIndex;
+                distribucion_seleccionadaA3 = cmbA3.SelectedIndex;
+                distribucion_seleccionadaA4 = cmbA4.SelectedIndex;
+                distribucion_seleccionadaA5 = cmbA5.SelectedIndex;
             }
         }
         /// fin de las verificaciones
@@ -223,11 +263,12 @@ namespace probandoTp4
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             dgvFrec.DataSource = null;
+            dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
             vecActual = new double[15];
             vecAnterior = new double[15];
 
-
+            
             //le damos los valores por defecto o los ingresados por teclado
             this.seleccionDatos();
 
@@ -282,7 +323,6 @@ namespace probandoTp4
                     rnd = x / cteM;
                 }
                 
-                MessageBox.Show("Valor de x: " + x);
                 for (int i = 1; i <= 5; i++)
                 {
                     v[i] = rnd;
@@ -290,22 +330,50 @@ namespace probandoTp4
                 
             }
             v[0] = x;
-            v[1] = Distribucion.Distribuciones.generarUniforme(minA1,maxA1, v[1]);
-            v[2] = Distribucion.Distribuciones.generarUniforme(minA2, maxA2, v[2]);
-            v[3] = Distribucion.Distribuciones.generarExponencial(mediaA3, v[3]);
-            v[4] = Distribucion.Distribuciones.generarUniforme(minA4, maxA4, v[4]);
-            v[5] = Distribucion.Distribuciones.generarExponencial(mediaA5, v[5]);
+            if (rbPorDefecto.Checked)
+            {
+                v[1] = Distribucion.Distribuciones.generarUniforme(minA1, maxA1, v[1]);
+                v[2] = Distribucion.Distribuciones.generarUniforme(minA2, maxA2, v[2]);
+                v[3] = Distribucion.Distribuciones.generarExponencial(mediaA3, v[3]);
+                v[4] = Distribucion.Distribuciones.generarUniforme(minA4, maxA4, v[4]);
+                v[5] = Distribucion.Distribuciones.generarExponencial(mediaA5, v[5]);
+            }
+            else
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+
+                }
+            }
+            
+            
 
             
 
             return v;
         }
 
+        public void seleccionDistribucion(int nroDistr, int i, double minA, double maxA, double medA, double desvA, double[] v)
+        {
+            int a = 0;
+            switch (nroDistr)
+            {
+                case 0:
+                    v[i] = Distribucion.Distribuciones.generarUniforme(minA, maxA, v[i]);
+                    break;
+                case 1:
+                    v[i] = Distribucion.Distribuciones.generarExponencial(medA, v[i]);
+                    break;
+                case 2:
+                    //v[i] = Distribucion.Distribuciones.generarNormal(a ,medA, desvA);
+                    break;
+            }
+        }
+
         public double generarRandom(double semilla, double a, double c, double m)
         {
             double x;
             x = ((semilla * a + c) % m);         
-            MessageBox.Show("rnd generado: " + x);
             return x;
         }
 

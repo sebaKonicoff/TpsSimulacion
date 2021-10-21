@@ -38,3 +38,13 @@ C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\proband
 C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
 C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
 C:\Users\usuario\TPs\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe.config
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.pdb
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.AssemblyReference.cache
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.Properties.Resources.resources
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.GenerateResource.cache
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
+D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
