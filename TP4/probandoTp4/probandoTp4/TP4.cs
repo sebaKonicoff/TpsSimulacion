@@ -61,6 +61,7 @@ namespace probandoTp4
             txtCteM.Text = "";
             vecActual = new double [15];
             vecAnterior = new double[15];
+            seleccionDatos();
         }
 
         private void rbSeleccionDatos_CheckedChanged(object sender, EventArgs e)
@@ -174,7 +175,6 @@ namespace probandoTp4
             DistribucionSeleccionada(cmbA5.SelectedIndex, txtMinA5, txtMaxA5, txtMediaA5, txtDesvA5);
         }
 
-<<<<<<< HEAD
         public void validacionTxt()
         {
             if (txtMinA1.Text == "") { txtMinA1.Text = "0"; }
@@ -200,19 +200,67 @@ namespace probandoTp4
 
         }
         public void seleccionDatos()
-=======
+        {
+            if (rbPorDefecto.Checked)
+            {
+                minA1 = 20;
+                minA2 = 30;
+                minA3 = 40;
+                mediaA3 = 30;
+                minA4 = 10;
+                minA5 = 4;
+                maxA1 = 30;
+                maxA2 = 50;
+                maxA3 = 0.115;
+                maxA4 = 20;
+                maxA5 = 5;
+                mediaA5 = 5;
+                distribucion_seleccionadaA1 = 0;
+                distribucion_seleccionadaA2 = 0;
+                distribucion_seleccionadaA3 = 2;
+                distribucion_seleccionadaA4 = 0;
+                distribucion_seleccionadaA5 = 2;
+
+            }
+            else
+            {
+                validacionTxt();
+
+                minA1 = int.Parse(txtMinA1.Text);
+                minA2 = int.Parse(txtMinA2.Text);
+                minA3 = int.Parse(txtMinA3.Text);
+                minA4 = int.Parse(txtMinA4.Text);
+                minA5 = int.Parse(txtMinA5.Text);
+                maxA1 = int.Parse(txtMaxA1.Text);
+                maxA2 = int.Parse(txtMaxA2.Text);
+                maxA3 = int.Parse(txtMaxA3.Text);
+                maxA4 = int.Parse(txtMaxA4.Text);
+                maxA5 = int.Parse(txtMaxA5.Text);
+                medA1 = int.Parse(txtMediaA1.Text);
+                medA2 = int.Parse(txtMediaA2.Text);
+                medA3 = int.Parse(txtMediaA3.Text);
+                medA4 = int.Parse(txtMediaA4.Text);
+                medA5 = int.Parse(txtMediaA5.Text);
+                desvA1 = int.Parse(txtDesvA1.Text);
+                desvA2 = int.Parse(txtDesvA2.Text);
+                desvA3 = int.Parse(txtDesvA3.Text);
+                desvA4 = int.Parse(txtDesvA4.Text);
+                desvA5 = int.Parse(txtDesvA5.Text);
+                distribucion_seleccionadaA1 = cmbA1.SelectedIndex;
+                distribucion_seleccionadaA2 = cmbA2.SelectedIndex;
+                distribucion_seleccionadaA3 = cmbA3.SelectedIndex;
+                distribucion_seleccionadaA4 = cmbA4.SelectedIndex;
+                distribucion_seleccionadaA5 = cmbA5.SelectedIndex;
+            }
+        }
         private bool ValidarDatos()
->>>>>>> f993516a0779091cd31d9ab684cd7c7c33f4f0da
         {
             string val = "Validación de datos";
             if (txtNroSimulaciones.Text == "")
             {
-<<<<<<< HEAD
                 MessageBox.Show("Debe ingresar un nunmero de simulaciones válidos!.", val, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-=======
                 MessageBox.Show("Debe ingresar un nunmero de simulaciones válido!");
                 return false;
->>>>>>> f993516a0779091cd31d9ab684cd7c7c33f4f0da
             }
             if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
             {
@@ -298,7 +346,6 @@ namespace probandoTp4
         {
             if (distribucion.SelectedIndex == 1)
             {
-<<<<<<< HEAD
                 validacionTxt();
                 
                 minA1 = int.Parse(txtMinA1.Text);
@@ -326,18 +373,16 @@ namespace probandoTp4
                 distribucion_seleccionadaA3 = cmbA3.SelectedIndex;
                 distribucion_seleccionadaA4 = cmbA4.SelectedIndex;
                 distribucion_seleccionadaA5 = cmbA5.SelectedIndex;
-=======
+
                 if (media.Text == "" || desviacion.Text == "")
                     return false;
                 if (Convert.ToInt32(media.Text) <= 0 || Convert.ToInt32(desviacion.Text) <= 0)
                     return false;
->>>>>>> f993516a0779091cd31d9ab684cd7c7c33f4f0da
             }
             return true;
         }
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             dgvFrec.DataSource = null;
             dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
@@ -347,7 +392,7 @@ namespace probandoTp4
             
             //le damos los valores por defecto o los ingresados por teclado
             this.seleccionDatos();
-=======
+
             if (ValidarDatos())
             {
                 dgvFrec.DataSource = null;
@@ -356,7 +401,6 @@ namespace probandoTp4
                 vecAnterior = new double[15];
 
                 double n = Convert.ToDouble(txtNroSimulaciones.Text);
->>>>>>> f993516a0779091cd31d9ab684cd7c7c33f4f0da
 
 
                 for (int i = 1; i <= n; i++)
