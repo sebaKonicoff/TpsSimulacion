@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using MathNet.Numerics;
 
 namespace probandoTp4
 {
@@ -62,6 +63,7 @@ namespace probandoTp4
             vecActual = new double [15];
             vecAnterior = new double[15];
             seleccionDatos();
+
         }
 
         private void rbSeleccionDatos_CheckedChanged(object sender, EventArgs e)
@@ -103,6 +105,8 @@ namespace probandoTp4
             dt.Columns.Add("D Min");
             dt.Columns.Add("D Max");
             dt.Columns.Add("Prob Ocurrencia");
+            dt.Columns.Add("Desv");
+            dt.Columns.Add("Fec90");
         }
 
         private void rbCongruencialMixto_CheckedChanged(object sender, EventArgs e)
@@ -262,6 +266,8 @@ namespace probandoTp4
                 MessageBox.Show("Debe ingresar un nunmero de simulaciones válido!");
                 return false;
             }
+
+            
             if (cmbA1.Text == "" || cmbA2.Text == "" || cmbA3.Text == "" || cmbA4.Text == "" || cmbA5.Text == "")
             {
                 MessageBox.Show("ERROR! Debe seleccionar una opcion de los combos");
@@ -386,22 +392,21 @@ namespace probandoTp4
             dgvFrec.DataSource = null;
             dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
-            vecActual = new double[15];
-            vecAnterior = new double[15];
+            vecActual = new double[19];
+            vecAnterior = new double[19];
 
             
-            //le damos los valores por defecto o los ingresados por teclado
+
             this.seleccionDatos();
 
             if (ValidarDatos())
             {
                 dgvFrec.DataSource = null;
                 dgvFrec.Refresh();
-                vecActual = new double[15];
-                vecAnterior = new double[15];
+                vecActual = new double[19];
+                vecAnterior = new double[19];
 
                 double n = Convert.ToDouble(txtNroSimulaciones.Text);
-
 
                 for (int i = 1; i <= n; i++)
                 {
@@ -412,6 +417,7 @@ namespace probandoTp4
                     durPromedio(vecActual, i);
                     identMaxMin(vecActual, vecAnterior);
                     probOcurrencia45Dias(vecActual, i);
+                    desviacion(vecActual, i);
 
 
                     //MessageBox.Show("Tamaño del vector: " + vecActual.Length);
@@ -575,7 +581,23 @@ namespace probandoTp4
             v[14] = Math.Round(v[13] / n, 3);
         }
 
-        public void agregarDatosTabla(double[] v, int i)
+        public void desviacion(double[] v, int n)
+        {
+            double a = (v[9] - v[10]) * (v[9] - v[10]);
+            v[15] += a;
+
+            v[16] = Math.Round(Math.Sqrt(v[15] / n));
+        }
+
+        public void prob90(double[] v, int n)
+        {
+            double ts = 0; //MathNet.Numerics.ExcelFunctions.TInv(0.90, n-1);
+            double res = v[10] + ts * v[15];
+            v[17] = res;
+
+        }
+
+            public void agregarDatosTabla(double[] v, int i)
         {
             //Agregando los datos a la tabla
             
@@ -594,6 +616,8 @@ namespace probandoTp4
             dr["D Min"] = v[11];
             dr["D Max"] = v[12];
             dr["Prob Ocurrencia"] = v[14];
+            dr["Desv"] = v[16];
+            dr["Fec90"] = v[17];
             dt.Rows.Add(dr);
 
             dgvFrec.DataSource = dt;
