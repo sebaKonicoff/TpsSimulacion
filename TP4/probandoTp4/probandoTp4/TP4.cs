@@ -17,7 +17,7 @@ namespace probandoTp4
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
         double[] vecActual, vecAnterior;
         double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM;
-        double medA1, medA2, medA3, medA4, medA5, desvA1, desvA2, desvA3, desvA4, desvA5;
+        double medA1, medA2, medA3, medA4, medA5, desvA1, desvA2, desvA3, desvA4, desvA5, n;
         bool primerSimulacion = true;
         DataTable dt = new DataTable();
         Random r = new Random();
@@ -406,7 +406,7 @@ namespace probandoTp4
                 vecActual = new double[19];
                 vecAnterior = new double[19];
 
-                double n = Convert.ToDouble(txtNroSimulaciones.Text);
+                n = Convert.ToDouble(txtNroSimulaciones.Text);
 
                 for (int i = 1; i <= n; i++)
                 {
@@ -477,15 +477,48 @@ namespace probandoTp4
             {
                 for (int i = 1; i <= 5; i++)
                 {
-
+                    if (i == 1)
+                    {
+                        v[i] = datosPorTeclado(v[i], distribucion_seleccionadaA1, minA1, maxA1, medA1, desvA1, n);
+                    }
+                    else if (i == 2)
+                    {
+                        v[i] = datosPorTeclado(v[i], distribucion_seleccionadaA2, minA2, maxA2, medA2, desvA2, n);
+                    }
+                    else if (i == 3)
+                    {
+                        v[i] = datosPorTeclado(v[i], distribucion_seleccionadaA3, minA3, maxA3, medA3, desvA3, n);
+                    }
+                    else if (i == 4)
+                    {
+                        v[i] = datosPorTeclado(v[i], distribucion_seleccionadaA4, minA4, maxA4, medA4, desvA4, n);
+                    }
+                    else if (i == 5)
+                    {
+                        v[i] = datosPorTeclado(v[i], distribucion_seleccionadaA5, minA5, maxA5, medA5, desvA5, n);
+                    }
                 }
             }
             
-            
-
-            
-
             return v;
+        }
+
+        //según lo que seleccionó por teclado, va a llamar a la distribución correspondiente.
+        public double datosPorTeclado(double rnd, int distrSelecc, double min, double max, double media, double desv, double n)
+        {
+            switch (distrSelecc)
+            {
+                case 0:
+                    rnd = Distribucion.Distribuciones.generarUniforme(min, max, rnd);
+                    break;
+                case 1:
+                    //v = Distribucion.Distribuciones.generarNormal(n, media, desv);
+                    break;
+                case 2:
+                    rnd = Distribucion.Distribuciones.generarExponencial(media, rnd);
+                    break;
+            }
+            return rnd;
         }
 
         public void seleccionDistribucion(int nroDistr, int i, double minA, double maxA, double medA, double desvA, double[] v)
