@@ -15,6 +15,7 @@ namespace probandoTp4
     {
         enum tipo_distribucion { Uniforme, Normal, Exponencial };
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
+        double acumInt1, acumInt2, acumInt3, acumInt4, acumInt5, acumInt6, acumInt7, acumInt8, acumInt9, acumInt10, acumInt11, acumInt12, acumInt13, acumInt14, acumInt15;
         double[] vecActual, vecAnterior;
         double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM;
         double medA1, medA2, medA3, medA4, medA5, desvA1, desvA2, desvA3, desvA4, desvA5, n;
@@ -60,8 +61,8 @@ namespace probandoTp4
             txtCteA.Text = "";
             txtCteC.Text = "";
             txtCteM.Text = "";
-            vecActual = new double [15];
-            vecAnterior = new double[15];
+            vecActual = new double [48];
+            vecAnterior = new double[48];
             seleccionDatos();
 
         }
@@ -91,6 +92,20 @@ namespace probandoTp4
             txtMaxA4.Text = "20";
             cmbA5.SelectedIndex = 2;
             txtMediaA5.Text = "5";
+            acumInt1 = 1;
+            acumInt2 = 1;
+            acumInt3 = 1;
+            acumInt4 = 1;
+            acumInt5 = 1;
+            acumInt6 = 1;
+            acumInt7 = 1;
+            acumInt8 = 1;
+            acumInt9 = 1;
+            acumInt10 = 1;
+            acumInt11 = 1;
+            acumInt12 = 1;
+            acumInt13 = 1;
+            acumInt14 = 1;
             dt.Columns.Add("Nro");
             dt.Columns.Add("A1");
             dt.Columns.Add("A2");
@@ -107,6 +122,36 @@ namespace probandoTp4
             dt.Columns.Add("Prob Ocurrencia");
             dt.Columns.Add("Desv");
             dt.Columns.Add("Fec90");
+            dt.Columns.Add("Int 1");
+            dt.Columns.Add("Int 2");
+            dt.Columns.Add("Int 3");
+            dt.Columns.Add("Int 4");
+            dt.Columns.Add("Int 5");
+            dt.Columns.Add("Int 6");
+            dt.Columns.Add("Int 7");
+            dt.Columns.Add("Int 8");
+            dt.Columns.Add("Int 9");
+            dt.Columns.Add("Int 10");
+            dt.Columns.Add("Int 11");
+            dt.Columns.Add("Int 12");
+            dt.Columns.Add("Int 13");
+            dt.Columns.Add("Int 14");
+            dt.Columns.Add("Int 15");
+            dt.Columns.Add("P. Int 1");
+            dt.Columns.Add("P. Int 2");
+            dt.Columns.Add("P. Int 3");
+            dt.Columns.Add("P. Int 4");
+            dt.Columns.Add("P. Int 5");
+            dt.Columns.Add("P. Int 6");
+            dt.Columns.Add("P. Int 7");
+            dt.Columns.Add("P. Int 8");
+            dt.Columns.Add("P. Int 9");
+            dt.Columns.Add("P. Int 10");
+            dt.Columns.Add("P. Int 11");
+            dt.Columns.Add("P. Int 12");
+            dt.Columns.Add("P. Int 13");
+            dt.Columns.Add("P. Int 14");
+            dt.Columns.Add("P. Int 15");
         }
 
         private void rbCongruencialMixto_CheckedChanged(object sender, EventArgs e)
@@ -392,8 +437,8 @@ namespace probandoTp4
             dgvFrec.DataSource = null;
             dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
-            vecActual = new double[19];
-            vecAnterior = new double[19];
+            vecActual = new double[48];
+            vecAnterior = new double[48];
 
             
 
@@ -403,23 +448,29 @@ namespace probandoTp4
             {
                 dgvFrec.DataSource = null;
                 dgvFrec.Refresh();
-                vecActual = new double[19];
-                vecAnterior = new double[19];
+                vecActual = new double[48];
+                vecAnterior = new double[48];
 
                 n = Convert.ToDouble(txtNroSimulaciones.Text);
+                int posicion = 18;
+                double[] vecIntervalos = new double[15];
+                Boolean ordenado = false;
 
                 for (int i = 1; i <= n; i++)
                 {
                     vecActual = generarPrimerosValores(vecActual);
                     //obtenemos el tiempo de cada camino y el camino más largo
                     vecActual = tiempoCamino(vecActual);
-                    //vecActual[10] = Math.Round((vecActual[9] + vecAnterior[10]) / i ,3);//la duracion promedio
                     durPromedio(vecActual, i);
                     identMaxMin(vecActual, vecAnterior);
                     probOcurrencia45Dias(vecActual, i);
                     desviacion(vecActual, i);
-
-
+                    armarIntervalos(vecActual, vecIntervalos, i, posicion, ordenado);
+                    //i>15 --> tengo que empezar en el 16
+                    if (i>15)
+                    {
+                        calcularProb(vecActual, i);
+                    }
                     //MessageBox.Show("Tamaño del vector: " + vecActual.Length);
                     agregarDatosTabla(vecActual, i);
                     vecAnterior = vecActual;
@@ -521,23 +572,6 @@ namespace probandoTp4
             return rnd;
         }
 
-        public void seleccionDistribucion(int nroDistr, int i, double minA, double maxA, double medA, double desvA, double[] v)
-        {
-            int a = 0;
-            switch (nroDistr)
-            {
-                case 0:
-                    v[i] = Distribucion.Distribuciones.generarUniforme(minA, maxA, v[i]);
-                    break;
-                case 1:
-                    v[i] = Distribucion.Distribuciones.generarExponencial(medA, v[i]);
-                    break;
-                case 2:
-                    //v[i] = Distribucion.Distribuciones.generarNormal(a ,medA, desvA);
-                    break;
-            }
-        }
-
         public double generarRandom(double semilla, double a, double c, double m)
         {
             double x;
@@ -630,6 +664,111 @@ namespace probandoTp4
 
         }
 
+        public void armarIntervalos(double[] vact, double[] vInt, int i, int posicion, Boolean ordenado)
+        {           
+            if (i < 15)
+            {
+                vInt[i - 1] = vact[9];
+                vact[posicion] = vInt[i-1];
+            }
+            else
+            {                
+                if (!ordenado)
+                {
+                    posicion = 18;
+                    vInt[14] = 9999;
+                    Array.Sort(vInt);
+                    for (int j=0; j<15;j++)
+                    {
+                        vact[posicion] = vInt[j];
+                        posicion +=1;
+                    }
+                    ordenado = true;                 
+                }
+                // i está valiendo 33
+
+            }                      
+        }
+
+        public void calcularProb(double[] vAct, int i)
+        {
+            if (vAct[9] <= vAct[18]) 
+            { 
+                acumInt1 += 1;                
+            }
+            else if (vAct[9] <= vAct[19])
+            {
+                acumInt2 += 1;                
+            }
+            else if (vAct[9] <= vAct[20])
+            {
+                acumInt3 += 1;                
+            }
+            else if (vAct[9] <= vAct[21])
+            {
+                acumInt4 += 1;                
+            }
+            else if (vAct[9] <= vAct[22])
+            {
+                acumInt5 += 1;               
+            }
+            else if (vAct[9] <= vAct[23])
+            {
+                acumInt6 += 1;                
+            }
+            else if (vAct[9] <= vAct[24])
+            {
+                acumInt7 += 1;               
+            }
+            else if (vAct[9] <= vAct[25])
+            {
+                acumInt8 += 1;               
+            }
+            else if (vAct[9] <= vAct[26])
+            {
+                acumInt9 += 1;               
+            }
+            else if (vAct[9] <= vAct[27])
+            {
+                acumInt10 += 1;                
+            }
+            else if (vAct[9] <= vAct[28])
+            {
+                acumInt11 += 1;             
+            }
+            else if (vAct[9] <= vAct[29])
+            {
+                acumInt12 += 1;               
+            }
+            else if (vAct[9] <= vAct[30])
+            {
+                acumInt13 += 1;              
+            }
+            else if (vAct[9] <= vAct[31])
+            {
+                acumInt14 += 1;                
+            }
+            else
+            {
+                acumInt15 += 1;               
+            }
+            vAct[33] = Math.Round(acumInt1 / i, 4);
+            vAct[34] = Math.Round(acumInt2 / i, 4);
+            vAct[35] = Math.Round(acumInt3 / i, 4);
+            vAct[36] = Math.Round(acumInt4 / i, 4);
+            vAct[37] = Math.Round(acumInt5 / i, 4);
+            vAct[38] = Math.Round(acumInt6 / i, 4);
+            vAct[39] = Math.Round(acumInt7 / i, 4);
+            vAct[40] = Math.Round(acumInt8 / i, 4);
+            vAct[41] = Math.Round(acumInt9 / i, 4);
+            vAct[42] = Math.Round(acumInt10 / i, 4);
+            vAct[43] = Math.Round(acumInt11 / i, 4);
+            vAct[44] = Math.Round(acumInt12 / i, 4);
+            vAct[45] = Math.Round(acumInt13 / i, 4);
+            vAct[46] = Math.Round(acumInt14 / i, 4);
+            vAct[47] = Math.Round(acumInt15 / i, 4);
+        }
+
             public void agregarDatosTabla(double[] v, int i)
         {
             //Agregando los datos a la tabla
@@ -651,8 +790,37 @@ namespace probandoTp4
             dr["Prob Ocurrencia"] = v[14];
             dr["Desv"] = v[16];
             dr["Fec90"] = v[17];
+            dr["Int 1"] = v[18];
+            dr["Int 2"] = v[19];
+            dr["Int 3"] = v[20];
+            dr["Int 4"] = v[21];
+            dr["Int 5"] = v[22];
+            dr["Int 6"] = v[23];
+            dr["Int 7"] = v[24];
+            dr["Int 8"] = v[25];
+            dr["Int 9"] = v[26];
+            dr["Int 10"] = v[27];
+            dr["Int 11"] = v[28];
+            dr["Int 12"] = v[29];
+            dr["Int 13"] = v[30];
+            dr["Int 14"] = v[31];
+            dr["Int 15"] = v[32];
+            dr["P. Int 1"] = v[33];
+            dr["P. Int 2"] = v[34];
+            dr["P. Int 3"] = v[35];
+            dr["P. Int 4"] = v[36];
+            dr["P. Int 5"] = v[37];
+            dr["P. Int 6"] = v[38];
+            dr["P. Int 7"] = v[39];
+            dr["P. Int 8"] = v[40];
+            dr["P. Int 9"] = v[41];
+            dr["P. Int 10"] = v[42];
+            dr["P. Int 11"] = v[43];
+            dr["P. Int 12"] = v[44];
+            dr["P. Int 13"] = v[45];
+            dr["P. Int 14"] = v[46];
+            dr["P. Int 15"] = v[47];
             dt.Rows.Add(dr);
-
             dgvFrec.DataSource = dt;
         }
         
