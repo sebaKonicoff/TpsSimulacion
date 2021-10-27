@@ -16,8 +16,12 @@ namespace probandoTp4
         enum tipo_distribucion { Uniforme, Normal, Exponencial };
         int distribucion_seleccionadaA1, distribucion_seleccionadaA2, distribucion_seleccionadaA3, distribucion_seleccionadaA4, distribucion_seleccionadaA5;
         double acumInt1, acumInt2, acumInt3, acumInt4, acumInt5, acumInt6, acumInt7, acumInt8, acumInt9, acumInt10, acumInt11, acumInt12, acumInt13, acumInt14, acumInt15;
+        double acumPor1, acumPor2, acumPor3, acumPor4, acumPor5, acumPor6, acumPor7, acumPor8, acumPor9, acumPor10, acumPor11, acumPor12, acumPor13, acumPor14, acumPor15;
         double[] vecActual, vecAnterior;
-        double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM;
+        double minA1, minA2, minA3, mediaA3, minA4, minA5, maxA1, maxA2, maxA3, maxA4, maxA5, mediaA5, semilla, cteA, cteC, cteM, desde, hasta;
+
+        
+
         double medA1, medA2, medA3, medA4, medA5, desvA1, desvA2, desvA3, desvA4, desvA5, n;
         bool primerSimulacion = true;
         DataTable dt = new DataTable();
@@ -61,12 +65,36 @@ namespace probandoTp4
             txtCteA.Text = "";
             txtCteC.Text = "";
             txtCteM.Text = "";
-            vecActual = new double [48];
-            vecAnterior = new double[48];
+            vecActual = new double [63];
+            vecAnterior = new double[63];
             seleccionDatos();
 
         }
 
+        private void rbPrimeros5000_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPrimeros5000.Checked)
+            {
+                txtDesde.Enabled = false;
+                txtHasta.Enabled = false;
+            }
+        }
+        private void rbUltimos5000_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbUltimos5000.Checked)
+            {
+                txtDesde.Enabled = false;
+                txtHasta.Enabled = false;
+            }
+        }
+        private void rbDesdeHasta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDesdeHasta.Checked)
+            {
+                txtHasta.Enabled = true;
+                txtDesde.Enabled = true;
+            }
+        }
         private void rbSeleccionDatos_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSeleccionDatos.Checked)
@@ -106,6 +134,21 @@ namespace probandoTp4
             acumInt12 = 1;
             acumInt13 = 1;
             acumInt14 = 1;
+            acumPor1 = 1;
+            acumPor2 = 1;
+            acumPor3 = 1;
+            acumPor4 = 1;
+            acumPor5 = 1;
+            acumPor6 = 1;
+            acumPor7 = 1;
+            acumPor8 = 1;
+            acumPor9 = 1;
+            acumPor10 = 1;
+            acumPor11 = 1;
+            acumPor12 = 1;
+            acumPor13 = 1;
+            acumPor14 = 1;
+            acumPor15 = 1;
             dt.Columns.Add("Nro");
             dt.Columns.Add("A1");
             dt.Columns.Add("A2");
@@ -152,6 +195,21 @@ namespace probandoTp4
             dt.Columns.Add("P. Int 13");
             dt.Columns.Add("P. Int 14");
             dt.Columns.Add("P. Int 15");
+            dt.Columns.Add("Int 1 %");
+            dt.Columns.Add("Int 2 %");
+            dt.Columns.Add("Int 3 %");
+            dt.Columns.Add("Int 4 %");
+            dt.Columns.Add("Int 5 %");
+            dt.Columns.Add("Int 6 %");
+            dt.Columns.Add("Int 7 %");
+            dt.Columns.Add("Int 8 %");
+            dt.Columns.Add("Int 9 %");
+            dt.Columns.Add("Int 10 %");
+            dt.Columns.Add("Int 11 %");
+            dt.Columns.Add("Int 12 %");
+            dt.Columns.Add("Int 13 %");
+            dt.Columns.Add("Int 14 %");
+            dt.Columns.Add("Int 15 %");
         }
 
         private void rbCongruencialMixto_CheckedChanged(object sender, EventArgs e)
@@ -323,6 +381,20 @@ namespace probandoTp4
                 MessageBox.Show("ERROR! Debe Ingresar valores válidos");
                 return false;
             }
+            if (n > 5000)
+            {
+                if (!rbDesdeHasta.Checked && !rbPrimeros5000.Checked && !rbUltimos5000.Checked)
+                {
+                    MessageBox.Show("ERROR! Debe seleccionar algun rango para mostrar");
+                    return false;
+                }
+                if (rbDesdeHasta.Checked && (txtDesde.Text == "" || txtHasta.Text == ""))
+                {
+                    MessageBox.Show("ERROR! Debe ingresar rango para mostrar");
+                    return false;
+                }
+
+            }           
             return true;
         }
 
@@ -432,13 +504,37 @@ namespace probandoTp4
             }
             return true;
         }
+
+        public void rangoAMostrar(double n)
+        {
+            if (n <= 5000)
+            {
+                desde = 1;
+                hasta = n;
+            }
+            else if (rbPrimeros5000.Checked)
+            {
+                desde = 1;
+                hasta = 5000;
+            }
+            else if (rbUltimos5000.Checked)
+            {
+                desde = n - 5000;
+                hasta = n;
+            }
+            else
+            {
+                desde = Convert.ToDouble(txtDesde.Text);
+                hasta = Convert.ToDouble(txtHasta.Text);
+            }
+        }
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             dgvFrec.DataSource = null;
             dgvFrec.Rows.Clear();
             dgvFrec.Refresh();
-            vecActual = new double[48];
-            vecAnterior = new double[48];
+            vecActual = new double[63];
+            vecAnterior = new double[63];
 
             
 
@@ -448,13 +544,14 @@ namespace probandoTp4
             {
                 dgvFrec.DataSource = null;
                 dgvFrec.Refresh();
-                vecActual = new double[48];
-                vecAnterior = new double[48];
+                vecActual = new double[63];
+                vecAnterior = new double[63];
 
                 n = Convert.ToDouble(txtNroSimulaciones.Text);
                 int posicion = 18;
                 double[] vecIntervalos = new double[15];
                 Boolean ordenado = false;
+                rangoAMostrar(n);
 
                 for (int i = 1; i <= n; i++)
                 {
@@ -470,9 +567,17 @@ namespace probandoTp4
                     if (i>15)
                     {
                         calcularProb(vecActual, i);
+                        acumPorc(vecActual, i);
                     }
                     //MessageBox.Show("Tamaño del vector: " + vecActual.Length);
-                    agregarDatosTabla(vecActual, i);
+                    if (i >= desde && i <= hasta)
+                    {
+                        agregarDatosTabla(vecActual, i);                 
+                    }
+                    if (i == n && !rbUltimos5000.Checked)
+                    {
+                        agregarDatosTabla(vecActual, i);
+                    }
                     vecAnterior = vecActual;
                 }
             }
@@ -769,6 +874,41 @@ namespace probandoTp4
             vAct[47] = Math.Round(acumInt15 / i, 4);
         }
 
+        public void acumPorc(double[] vAct, int i)
+        {
+            if (vAct[9] <= vAct[18]) { acumPor1 += 1; }
+            if (vAct[9] <= vAct[19]) { acumPor2 += 1; }
+            if (vAct[9] <= vAct[20]) { acumPor3 += 1; }
+            if (vAct[9] <= vAct[21]) { acumPor4 += 1; }
+            if (vAct[9] <= vAct[22]) { acumPor5 += 1; }
+            if (vAct[9] <= vAct[23]) { acumPor6 += 1; }
+            if (vAct[9] <= vAct[24]) { acumPor7 += 1; }
+            if (vAct[9] <= vAct[25]) { acumPor8 += 1; }
+            if (vAct[9] <= vAct[26]) { acumPor9 += 1; }
+            if (vAct[9] <= vAct[27]) { acumPor10 += 1; }
+            if (vAct[9] <= vAct[28]) { acumPor11 += 1; }
+            if (vAct[9] <= vAct[29]) { acumPor12 += 1; }
+            if (vAct[9] <= vAct[30]) { acumPor13 += 1; }
+            if (vAct[9] <= vAct[31]) { acumPor14 += 1; }
+            acumPor15 += 1;
+            vAct[48] = Math.Round((acumPor1 / i) * 100, 2);
+            vAct[49] = Math.Round((acumPor2 / i) * 100, 2);
+            vAct[50] = Math.Round((acumPor3 / i) * 100, 2);
+            vAct[51] = Math.Round((acumPor4 / i) * 100, 2);
+            vAct[52] = Math.Round((acumPor5 / i) * 100, 2);
+            vAct[53] = Math.Round((acumPor6 / i) * 100, 2);
+            vAct[54] = Math.Round((acumPor7 / i) * 100, 2);
+            vAct[55] = Math.Round((acumPor8 / i) * 100, 2);
+            vAct[56] = Math.Round((acumPor9 / i) * 100, 2);
+            vAct[57] = Math.Round((acumPor10 / i) * 100, 2);
+            vAct[58] = Math.Round((acumPor11 / i) * 100, 2);
+            vAct[59] = Math.Round((acumPor12 / i) * 100, 2);
+            vAct[60] = Math.Round((acumPor13 / i) * 100, 2);
+            vAct[61] = Math.Round((acumPor14 / i) * 100, 2);
+            vAct[62] = Math.Round((acumPor15 / i) * 100, 2);
+
+        }
+
             public void agregarDatosTabla(double[] v, int i)
         {
             //Agregando los datos a la tabla
@@ -820,6 +960,21 @@ namespace probandoTp4
             dr["P. Int 13"] = v[45];
             dr["P. Int 14"] = v[46];
             dr["P. Int 15"] = v[47];
+            dr["Int 1 %"] = v[48];
+            dr["Int 2 %"] = v[49];
+            dr["Int 3 %"] = v[50];
+            dr["Int 4 %"] = v[51];
+            dr["Int 5 %"] = v[52];
+            dr["Int 6 %"] = v[53];
+            dr["Int 7 %"] = v[54];
+            dr["Int 8 %"] = v[55];
+            dr["Int 9 %"] = v[56];
+            dr["Int 10 %"] = v[57];
+            dr["Int 11 %"] = v[58];
+            dr["Int 12 %"] = v[59];
+            dr["Int 13 %"] = v[60];
+            dr["Int 14 %"] = v[61];
+            dr["Int 15 %"] = v[62];
             dt.Rows.Add(dr);
             dgvFrec.DataSource = dt;
         }

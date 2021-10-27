@@ -100,11 +100,20 @@ namespace probandoTp4
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvFrec = new System.Windows.Forms.DataGridView();
             this.limpiar = new System.Windows.Forms.Button();
+            this.gbRangoAMostrar = new System.Windows.Forms.GroupBox();
+            this.rbPrimeros5000 = new System.Windows.Forms.RadioButton();
+            this.rbDesdeHasta = new System.Windows.Forms.RadioButton();
+            this.rbUltimos5000 = new System.Windows.Forms.RadioButton();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.gbxGeneracionNros.SuspendLayout();
             this.gbDatosActividades.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbDatosCongruencial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFrec)).BeginInit();
+            this.gbRangoAMostrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxGeneracionNros
@@ -776,7 +785,7 @@ namespace probandoTp4
             this.gbDatosCongruencial.Controls.Add(this.label19);
             this.gbDatosCongruencial.Controls.Add(this.txtSemilla);
             this.gbDatosCongruencial.Controls.Add(this.label20);
-            this.gbDatosCongruencial.Location = new System.Drawing.Point(18, 223);
+            this.gbDatosCongruencial.Location = new System.Drawing.Point(350, 230);
             this.gbDatosCongruencial.Name = "gbDatosCongruencial";
             this.gbDatosCongruencial.Size = new System.Drawing.Size(376, 88);
             this.gbDatosCongruencial.TabIndex = 13;
@@ -785,7 +794,7 @@ namespace probandoTp4
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(432, 223);
+            this.btnCalcular.Location = new System.Drawing.Point(741, 230);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(114, 42);
             this.btnCalcular.TabIndex = 14;
@@ -803,7 +812,7 @@ namespace probandoTp4
             // 
             // limpiar
             // 
-            this.limpiar.Location = new System.Drawing.Point(432, 271);
+            this.limpiar.Location = new System.Drawing.Point(741, 278);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(114, 42);
             this.limpiar.TabIndex = 16;
@@ -811,11 +820,98 @@ namespace probandoTp4
             this.limpiar.UseVisualStyleBackColor = true;
             this.limpiar.Click += new System.EventHandler(this.limpiar_Click);
             // 
+            // gbRangoAMostrar
+            // 
+            this.gbRangoAMostrar.Controls.Add(this.label27);
+            this.gbRangoAMostrar.Controls.Add(this.label26);
+            this.gbRangoAMostrar.Controls.Add(this.txtHasta);
+            this.gbRangoAMostrar.Controls.Add(this.txtDesde);
+            this.gbRangoAMostrar.Controls.Add(this.rbUltimos5000);
+            this.gbRangoAMostrar.Controls.Add(this.rbDesdeHasta);
+            this.gbRangoAMostrar.Controls.Add(this.rbPrimeros5000);
+            this.gbRangoAMostrar.Location = new System.Drawing.Point(12, 195);
+            this.gbRangoAMostrar.Name = "gbRangoAMostrar";
+            this.gbRangoAMostrar.Size = new System.Drawing.Size(311, 123);
+            this.gbRangoAMostrar.TabIndex = 17;
+            this.gbRangoAMostrar.TabStop = false;
+            this.gbRangoAMostrar.Text = "Rango a mostrar";
+            // 
+            // rbPrimeros5000
+            // 
+            this.rbPrimeros5000.AutoSize = true;
+            this.rbPrimeros5000.Location = new System.Drawing.Point(6, 19);
+            this.rbPrimeros5000.Name = "rbPrimeros5000";
+            this.rbPrimeros5000.Size = new System.Drawing.Size(92, 17);
+            this.rbPrimeros5000.TabIndex = 0;
+            this.rbPrimeros5000.TabStop = true;
+            this.rbPrimeros5000.Text = "Primeros 5000";
+            this.rbPrimeros5000.UseVisualStyleBackColor = true;
+            this.rbPrimeros5000.CheckedChanged += new System.EventHandler(this.rbPrimeros5000_CheckedChanged);
+            // 
+            // rbDesdeHasta
+            // 
+            this.rbDesdeHasta.AutoSize = true;
+            this.rbDesdeHasta.Location = new System.Drawing.Point(6, 42);
+            this.rbDesdeHasta.Name = "rbDesdeHasta";
+            this.rbDesdeHasta.Size = new System.Drawing.Size(87, 17);
+            this.rbDesdeHasta.TabIndex = 1;
+            this.rbDesdeHasta.TabStop = true;
+            this.rbDesdeHasta.Text = "Desde-Hasta";
+            this.rbDesdeHasta.UseVisualStyleBackColor = true;
+            this.rbDesdeHasta.CheckedChanged += new System.EventHandler(this.rbDesdeHasta_CheckedChanged);
+            // 
+            // rbUltimos5000
+            // 
+            this.rbUltimos5000.AutoSize = true;
+            this.rbUltimos5000.Location = new System.Drawing.Point(6, 96);
+            this.rbUltimos5000.Name = "rbUltimos5000";
+            this.rbUltimos5000.Size = new System.Drawing.Size(86, 17);
+            this.rbUltimos5000.TabIndex = 2;
+            this.rbUltimos5000.TabStop = true;
+            this.rbUltimos5000.Text = "Ultimos 5000";
+            this.rbUltimos5000.UseVisualStyleBackColor = true;
+            this.rbUltimos5000.CheckedChanged += new System.EventHandler(this.rbUltimos5000_CheckedChanged);
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.Enabled = false;
+            this.txtDesde.Location = new System.Drawing.Point(50, 65);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.Size = new System.Drawing.Size(87, 20);
+            this.txtDesde.TabIndex = 3;
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.Enabled = false;
+            this.txtHasta.Location = new System.Drawing.Point(203, 65);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(87, 20);
+            this.txtHasta.TabIndex = 4;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 68);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(38, 13);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "Desde";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(159, 68);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(35, 13);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "Hasta";
+            // 
             // TP4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1239, 629);
+            this.Controls.Add(this.gbRangoAMostrar);
             this.Controls.Add(this.limpiar);
             this.Controls.Add(this.dgvFrec);
             this.Controls.Add(this.btnCalcular);
@@ -837,6 +933,8 @@ namespace probandoTp4
             this.gbDatosCongruencial.ResumeLayout(false);
             this.gbDatosCongruencial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFrec)).EndInit();
+            this.gbRangoAMostrar.ResumeLayout(false);
+            this.gbRangoAMostrar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -915,6 +1013,14 @@ namespace probandoTp4
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox gbRangoAMostrar;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.RadioButton rbUltimos5000;
+        private System.Windows.Forms.RadioButton rbDesdeHasta;
+        private System.Windows.Forms.RadioButton rbPrimeros5000;
     }
 }
 
