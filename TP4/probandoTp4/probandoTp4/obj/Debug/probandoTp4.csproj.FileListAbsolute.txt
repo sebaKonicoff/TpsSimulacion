@@ -48,3 +48,16 @@ D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoT
 D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
 D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
 D:\Facu\2021\Segundo cuatrimestre\Simulacion\Tps\TPS\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe.config
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.exe
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\probandoTp4.pdb
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\MathNet.Numerics.dll
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\bin\Debug\MathNet.Numerics.xml
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csprojAssemblyReference.cache
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.TP4.resources
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.Properties.Resources.resources
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.csproj.CopyComplete
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.exe
+C:\Users\usuario\source\repos\TpsSimulacion\TP4\probandoTp4\probandoTp4\obj\Debug\probandoTp4.pdb

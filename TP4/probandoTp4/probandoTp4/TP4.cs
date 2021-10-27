@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using MathNet.Numerics;
+using MathNet.Numerics;
 
 namespace probandoTp4
 {
@@ -562,6 +562,10 @@ namespace probandoTp4
                     identMaxMin(vecActual, vecAnterior);
                     probOcurrencia45Dias(vecActual, i);
                     desviacion(vecActual, i);
+                    if (i > 1)
+                    {
+                        prob90(vecActual, i);
+                    }
                     armarIntervalos(vecActual, vecIntervalos, i, posicion, ordenado);
                     //i>15 --> tengo que empezar en el 16
                     if (i>15)
@@ -763,8 +767,8 @@ namespace probandoTp4
 
         public void prob90(double[] v, int n)
         {
-            double ts = 0; //MathNet.Numerics.ExcelFunctions.TInv(0.90, n-1);
-            double res = v[10] + ts * v[15];
+            double ts = MathNet.Numerics.ExcelFunctions.TInv(0.90, n-1);
+            double res = v[10] + ts * v[16];
             v[17] = res;
 
         }
