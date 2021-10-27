@@ -762,13 +762,13 @@ namespace probandoTp4
             double a = (v[9] - v[10]) * (v[9] - v[10]);
             v[15] += a;
 
-            v[16] = Math.Round(Math.Sqrt(v[15] / n));
+            v[16] = Math.Round(Math.Sqrt(v[15] / n),3);
         }
 
         public void prob90(double[] v, int n)
         {
             double ts = MathNet.Numerics.ExcelFunctions.TInv(0.90, n-1);
-            double res = v[10] + ts * v[16];
+            double res = Math.Round(v[10] + ts * v[16], 3);
             v[17] = res;
 
         }
